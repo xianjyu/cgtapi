@@ -8,7 +8,6 @@ Library  pylib.public.cgt.DBHelper
         ${result}=  check mch accnt name
         should be true  $result['code']=='101'
         should be true  $result['message']=='必输参数不能为空:{子商户名称}'
-        [teardown]  delete sql
 
 校验外部子商户号 - tc00002
         # 2.校验外部子商户号：out_mch_accnt_no
@@ -17,33 +16,33 @@ Library  pylib.public.cgt.DBHelper
         should be true  $result['message']=='必输参数不能为空:{外部子商户号}'
 
 校验联系人姓名 - tc00003
-        # 3.校验外部子商户号：link_name
+        # 3.校验联系人姓名：link_name
         ${result}=  check link name
         should be true  $result['code']=='101'
         should be true  $result['message']=='必输参数不能为空:{联系人}'
 
 校验联系人电话 - tc00004
-        # 4.校验外部子商户号：link_phone
+        # 4.校验联系人电话：link_phone
         ${result}=  check link phone
         should be true  $result['code']=='101'
         should be true  $result['message']=='必输参数不能为空:{联系电话}'
 
 校验联系人邮箱 - tc00005
-        # 5.校验外部子商户号：link_email
+        # 5.校验联系人邮箱：link_email
         ${result}=  check link email
         should be true  $result['code']=='0000'
         should be true  $result['message']=='success'
         [Teardown]  delete sql
 
 校验是否开设供应商账户 - tc00006
-        # 创建子商户并验证是否创建成功
+        # 校验是否开设供应商账户：is——supplier
         ${addResult}=  check is supplier
         should be true  $addResult['code']=='0000'
         should be true  $addResult['message']=='success'
         [Teardown]   delete sql
 
 校验是否开设担保商账户 - tc00007
-        # 创建子商户并验证是否创建成功
+        # 校验是否开设担保商账户
         ${addResult}=  check is assure
         should be true  $addResult['code']=='0000'
         should be true  $addResult['message']=='success'

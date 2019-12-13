@@ -82,6 +82,11 @@ class ComLib:
         out_mch_accnt_no = 'oman' + timestamp
         return out_mch_accnt_no
 
+    def get_order_no(self):
+        timestamp = ComLib.get_time(self)
+        order_no = 'on' + timestamp
+        return order_no
+
 
 if __name__ == '__main__':
     cl = ComLib()
