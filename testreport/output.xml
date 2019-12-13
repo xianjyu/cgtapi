@@ -1,83 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20191213 11:57:48.851" rpa="false">
+<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20191213 16:32:05.999" rpa="false">
 <suite id="s1" name="Tc" source="D:\workfile\Git\cgtapi\tc">
 <suite id="s1-s1" name="Data-空白数据" source="D:\workfile\Git\cgtapi\tc\data-空白数据">
 <kw name="Get Response Mchsub Create" library="pylib.interface.MchsubCreateLib" type="setup">
 <doc>获取子商户创建的返回值
 :param mch_accnt_name:子商户名称
+:param out_mch_accnt_no:外部子商户号
 :param link_name:联系人姓名
 :param link_phone:联系人电话
 :param link_email:联系人邮箱
 :return:返回一个子商户创建接口的返回报文</doc>
 <arguments>
 <arg>yxj</arg>
+<arg>oman123456789</arg>
 <arg>yxj</arg>
 <arg>13989353209</arg>
 <arg>2451255827@qq.com</arg>
 </arguments>
-<status status="PASS" starttime="20191213 11:57:48.934" endtime="20191213 11:57:48.995"></status>
+<msg timestamp="20191213 16:32:06.201" level="INFO">{'biz_content': {'mch_accnt_no': 'T0020191213163223000069', 'out_mch_accnt_no': 'oman123456789'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'success', 'out_trans_no': 'otn20191213163206', 'sign_type': 'MD5', 'timestamp': '20191213043223'}</msg>
+<status status="PASS" starttime="20191213 16:32:06.137" endtime="20191213 16:32:06.201"></status>
 </kw>
 <suite id="s1-s1-s1" name="子商户" source="D:\workfile\Git\cgtapi\tc\data-空白数据\子商户">
 <suite id="s1-s1-s1-s1" name="创建子商户" source="D:\workfile\Git\cgtapi\tc\data-空白数据\子商户\创建子商户.robot">
-<test id="s1-s1-s1-s1-t1" name="添加子商户 - tc00001">
-<kw name="Get Response Mchsub Create" library="pylib.interface.MchsubCreateLib">
-<doc>获取子商户创建的返回值
-:param mch_accnt_name:子商户名称
-:param link_name:联系人姓名
-:param link_phone:联系人电话
-:param link_email:联系人邮箱
-:return:返回一个子商户创建接口的返回报文</doc>
-<arguments>
-<arg>yxj</arg>
-<arg>yxj</arg>
-<arg>13989353209</arg>
-<arg>2451255827@qq.com</arg>
-</arguments>
+<test id="s1-s1-s1-s1-t1" name="校验子商户名称 - tc00001">
+<kw name="Check Mch Accnt Name" library="pylib.interface.MchsubCreateLib">
 <assign>
-<var>${addResult}</var>
+<var>${result}</var>
 </assign>
-<msg timestamp="20191213 11:57:49.253" level="INFO">${addResult} = {'biz_content': {'mch_accnt_no': 'T0020191213115807000045', 'out_mch_accnt_no': 'oman20191213115749'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'succes...</msg>
-<status status="PASS" starttime="20191213 11:57:49.182" endtime="20191213 11:57:49.253"></status>
+<msg timestamp="20191213 16:32:06.229" level="INFO">{'biz_type': 'mchsub.create', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{子商户名称}', 'sign_type': 'MD5', 'timestamp': '20191213043223'}</msg>
+<msg timestamp="20191213 16:32:06.230" level="INFO">${result} = {'biz_type': 'mchsub.create', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{子商户名称}', 'sign_type': 'MD5', 'timestamp': '20191213043223'}</msg>
+<status status="PASS" starttime="20191213 16:32:06.207" endtime="20191213 16:32:06.230"></status>
 </kw>
 <kw name="Should Be True" library="BuiltIn">
 <doc>Fails if the given condition is not true.</doc>
 <arguments>
-<arg>$addResult['code']=='0000'</arg>
+<arg>$result['code']=='101'</arg>
 </arguments>
-<status status="PASS" starttime="20191213 11:57:49.253" endtime="20191213 11:57:49.258"></status>
+<status status="PASS" starttime="20191213 16:32:06.230" endtime="20191213 16:32:06.233"></status>
 </kw>
 <kw name="Should Be True" library="BuiltIn">
 <doc>Fails if the given condition is not true.</doc>
 <arguments>
-<arg>$addResult['message']=='success'</arg>
+<arg>$result['message']=='必输参数不能为空:{子商户名称}'</arg>
 </arguments>
-<status status="PASS" starttime="20191213 11:57:49.258" endtime="20191213 11:57:49.258"></status>
+<status status="PASS" starttime="20191213 16:32:06.233" endtime="20191213 16:32:06.234"></status>
 </kw>
 <kw name="Delete Sql" library="pylib.public.DBHelper" type="teardown">
-<status status="PASS" starttime="20191213 11:57:49.258" endtime="20191213 11:57:49.328"></status>
+<status status="PASS" starttime="20191213 16:32:06.234" endtime="20191213 16:32:06.290"></status>
 </kw>
-<status status="PASS" starttime="20191213 11:57:49.181" endtime="20191213 11:57:49.328" critical="yes"></status>
+<status status="PASS" starttime="20191213 16:32:06.206" endtime="20191213 16:32:06.290" critical="yes"></status>
 </test>
-<status status="PASS" starttime="20191213 11:57:48.997" endtime="20191213 11:57:49.330"></status>
+<test id="s1-s1-s1-s1-t2" name="校验外部子商户号 - tc00002">
+<kw name="Check Out Mch Accnt No" library="pylib.interface.MchsubCreateLib">
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20191213 16:32:06.315" level="INFO">{'biz_type': 'mchsub.create', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{外部子商户号}', 'sign_type': 'MD5', 'timestamp': '20191213043224'}</msg>
+<msg timestamp="20191213 16:32:06.316" level="INFO">${result} = {'biz_type': 'mchsub.create', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{外部子商户号}', 'sign_type': 'MD5', 'timestamp': '20191213043224'}</msg>
+<status status="PASS" starttime="20191213 16:32:06.292" endtime="20191213 16:32:06.316"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>$result['code']=='101'</arg>
+</arguments>
+<status status="PASS" starttime="20191213 16:32:06.316" endtime="20191213 16:32:06.317"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>$result['message']=='必输参数不能为空:{外部子商户号}'</arg>
+</arguments>
+<status status="PASS" starttime="20191213 16:32:06.317" endtime="20191213 16:32:06.317"></status>
+</kw>
+<status status="PASS" starttime="20191213 16:32:06.291" endtime="20191213 16:32:06.318" critical="yes"></status>
+</test>
+<test id="s1-s1-s1-s1-t3" name="校验联系人姓名 - tc00003">
+<kw name="Check Link Name" library="pylib.interface.MchsubCreateLib">
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20191213 16:32:06.345" level="INFO">{'biz_type': 'mchsub.create', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{联系人}', 'sign_type': 'MD5', 'timestamp': '20191213043224'}</msg>
+<msg timestamp="20191213 16:32:06.345" level="INFO">${result} = {'biz_type': 'mchsub.create', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{联系人}', 'sign_type': 'MD5', 'timestamp': '20191213043224'}</msg>
+<status status="PASS" starttime="20191213 16:32:06.319" endtime="20191213 16:32:06.345"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>$result['code']=='101'</arg>
+</arguments>
+<status status="PASS" starttime="20191213 16:32:06.345" endtime="20191213 16:32:06.346"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>$result['message']=='必输参数不能为空:{联系人}'</arg>
+</arguments>
+<status status="PASS" starttime="20191213 16:32:06.346" endtime="20191213 16:32:06.347"></status>
+</kw>
+<status status="PASS" starttime="20191213 16:32:06.318" endtime="20191213 16:32:06.347" critical="yes"></status>
+</test>
+<test id="s1-s1-s1-s1-t4" name="校验联系人电话 - tc00004">
+<kw name="Check Link Phone" library="pylib.interface.MchsubCreateLib">
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20191213 16:32:06.378" level="INFO">{'biz_type': 'mchsub.create', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{联系电话}', 'sign_type': 'MD5', 'timestamp': '20191213043224'}</msg>
+<msg timestamp="20191213 16:32:06.378" level="INFO">${result} = {'biz_type': 'mchsub.create', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{联系电话}', 'sign_type': 'MD5', 'timestamp': '20191213043224'}</msg>
+<status status="PASS" starttime="20191213 16:32:06.351" endtime="20191213 16:32:06.378"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>$result['code']=='101'</arg>
+</arguments>
+<status status="PASS" starttime="20191213 16:32:06.378" endtime="20191213 16:32:06.379"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>$result['message']=='必输参数不能为空:{联系电话}'</arg>
+</arguments>
+<status status="PASS" starttime="20191213 16:32:06.380" endtime="20191213 16:32:06.381"></status>
+</kw>
+<status status="PASS" starttime="20191213 16:32:06.349" endtime="20191213 16:32:06.381" critical="yes"></status>
+</test>
+<test id="s1-s1-s1-s1-t5" name="校验联系人邮箱 - tc00005">
+<kw name="Check Link Email" library="pylib.interface.MchsubCreateLib">
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20191213 16:32:06.479" level="INFO">{'biz_content': {'mch_accnt_no': 'T0020191213163224000070', 'out_mch_accnt_no': 'oman123456789'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'success', 'out_trans_no': 'otn20191213163206', 'sign_type': 'MD5', 'timestamp': '20191213043224'}</msg>
+<msg timestamp="20191213 16:32:06.479" level="INFO">${result} = {'biz_content': {'mch_accnt_no': 'T0020191213163224000070', 'out_mch_accnt_no': 'oman123456789'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'success', '...</msg>
+<status status="PASS" starttime="20191213 16:32:06.384" endtime="20191213 16:32:06.479"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>$result['code']=='0000'</arg>
+</arguments>
+<status status="PASS" starttime="20191213 16:32:06.480" endtime="20191213 16:32:06.480"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>$result['message']=='success'</arg>
+</arguments>
+<status status="PASS" starttime="20191213 16:32:06.480" endtime="20191213 16:32:06.481"></status>
+</kw>
+<kw name="Delete Sql" library="pylib.public.DBHelper" type="teardown">
+<status status="PASS" starttime="20191213 16:32:06.481" endtime="20191213 16:32:06.542"></status>
+</kw>
+<status status="PASS" starttime="20191213 16:32:06.383" endtime="20191213 16:32:06.542" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20191213 16:32:06.203" endtime="20191213 16:32:06.545"></status>
 </suite>
-<status status="PASS" starttime="20191213 11:57:48.995" endtime="20191213 11:57:49.333"></status>
+<status status="PASS" starttime="20191213 16:32:06.201" endtime="20191213 16:32:06.547"></status>
 </suite>
-<status status="PASS" starttime="20191213 11:57:48.869" endtime="20191213 11:57:49.335"></status>
+<kw name="Delete Sql" library="pylib.public.DBHelper" type="teardown">
+<status status="PASS" starttime="20191213 16:32:06.548" endtime="20191213 16:32:06.606"></status>
+</kw>
+<status status="PASS" starttime="20191213 16:32:06.018" endtime="20191213 16:32:06.606"></status>
 </suite>
-<status status="PASS" starttime="20191213 11:57:48.852" endtime="20191213 11:57:49.336"></status>
+<status status="PASS" starttime="20191213 16:32:06.000" endtime="20191213 16:32:06.607"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="5" fail="0">Critical Tests</stat>
+<stat pass="5" fail="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="Tc">Tc</stat>
-<stat pass="1" fail="0" id="s1-s1" name="Data-空白数据">Tc.Data-空白数据</stat>
-<stat pass="1" fail="0" id="s1-s1-s1" name="子商户">Tc.Data-空白数据.子商户</stat>
-<stat pass="1" fail="0" id="s1-s1-s1-s1" name="创建子商户">Tc.Data-空白数据.子商户.创建子商户</stat>
+<stat pass="5" fail="0" id="s1" name="Tc">Tc</stat>
+<stat pass="5" fail="0" id="s1-s1" name="Data-空白数据">Tc.Data-空白数据</stat>
+<stat pass="5" fail="0" id="s1-s1-s1" name="子商户">Tc.Data-空白数据.子商户</stat>
+<stat pass="5" fail="0" id="s1-s1-s1-s1" name="创建子商户">Tc.Data-空白数据.子商户.创建子商户</stat>
 </suite>
 </statistics>
 <errors>

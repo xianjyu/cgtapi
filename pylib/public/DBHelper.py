@@ -12,27 +12,17 @@ class DBHelper:
         except OperationalError as e:
             print("MySQL Error %d: %s" % (e.args[0], e.args[1]))
 
-    def select_sql(self, param):
-        try:
-            sql = 'SELECT * FROM mch_accnt WHERE mch_accnt_name = ' + param
-            self.cursor.execute(sql)
-            data = self.cursor.fetchall()
-        except:
-            print("MySQL Error %s" % data)
+    def select_sql(self):
+        sql = 'SELECT * FROM mch_accnt WHERE mch_accnt_name = ' + "'yxj'"
+        self.cursor.execute(sql)
+        result = self.cursor.fetchone()   # fetchall()
         self.cursor.close()
         self.conn.close()
-        return data
+        return result
 
-    def delete_sql(self, param):
-        try:
-            sql = 'DELETE FROM mch_accnt WHERE mch_accnt_name =' + param
-            data = self.cursor.execute(sql)
-            if data == 1:
-                result = 'Done'
-            else:
-                result = 'Failed'
-        except:
-            print("MySQL Error %s" % data)
+    def delete_sql(self):
+        sql = 'DELETE FROM mch_accnt WHERE mch_accnt_name =' + "'yxj'"
+        result = self.cursor.execute(sql)
         self.conn.commit()
         self.cursor.close()
         self.conn.close()
@@ -41,5 +31,4 @@ class DBHelper:
 
 if __name__ == '__main__':
     db = DBHelper()
-    db.select_sql('yxj')
-
+    db.select_sql()

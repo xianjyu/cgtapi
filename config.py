@@ -10,9 +10,8 @@ biz_type = ['mchsub.create', 'mchsub.edit', 'mchsub.bind.bankcard']
 # 测试环境对应的token
 token = '9b389216c3c55a7c535510b33b9e6eb7'
 
-
 # 数据库参数
-localhost = '172.16.202.162'
+localhost = '172.16.202.160'
 username = 'yuxianjia'
 password = 'yuxianjia'
 database = 'deposit'
