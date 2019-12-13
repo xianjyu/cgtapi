@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20191213 11:57:48.851" rpa="false">
+<suite id="s1" name="Tc" source="D:\workfile\Git\cgtapi\tc">
+<suite id="s1-s1" name="Data-空白数据" source="D:\workfile\Git\cgtapi\tc\data-空白数据">
+<kw name="Get Response Mchsub Create" library="pylib.interface.MchsubCreateLib" type="setup">
+<doc>获取子商户创建的返回值
+:param mch_accnt_name:子商户名称
+:param link_name:联系人姓名
+:param link_phone:联系人电话
+:param link_email:联系人邮箱
+:return:返回一个子商户创建接口的返回报文</doc>
+<arguments>
+<arg>yxj</arg>
+<arg>yxj</arg>
+<arg>13989353209</arg>
+<arg>2451255827@qq.com</arg>
+</arguments>
+<status status="PASS" starttime="20191213 11:57:48.934" endtime="20191213 11:57:48.995"></status>
+</kw>
+<suite id="s1-s1-s1" name="子商户" source="D:\workfile\Git\cgtapi\tc\data-空白数据\子商户">
+<suite id="s1-s1-s1-s1" name="创建子商户" source="D:\workfile\Git\cgtapi\tc\data-空白数据\子商户\创建子商户.robot">
+<test id="s1-s1-s1-s1-t1" name="添加子商户 - tc00001">
+<kw name="Get Response Mchsub Create" library="pylib.interface.MchsubCreateLib">
+<doc>获取子商户创建的返回值
+:param mch_accnt_name:子商户名称
+:param link_name:联系人姓名
+:param link_phone:联系人电话
+:param link_email:联系人邮箱
+:return:返回一个子商户创建接口的返回报文</doc>
+<arguments>
+<arg>yxj</arg>
+<arg>yxj</arg>
+<arg>13989353209</arg>
+<arg>2451255827@qq.com</arg>
+</arguments>
+<assign>
+<var>${addResult}</var>
+</assign>
+<msg timestamp="20191213 11:57:49.253" level="INFO">${addResult} = {'biz_content': {'mch_accnt_no': 'T0020191213115807000045', 'out_mch_accnt_no': 'oman20191213115749'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'succes...</msg>
+<status status="PASS" starttime="20191213 11:57:49.182" endtime="20191213 11:57:49.253"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>$addResult['code']=='0000'</arg>
+</arguments>
+<status status="PASS" starttime="20191213 11:57:49.253" endtime="20191213 11:57:49.258"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>$addResult['message']=='success'</arg>
+</arguments>
+<status status="PASS" starttime="20191213 11:57:49.258" endtime="20191213 11:57:49.258"></status>
+</kw>
+<kw name="Delete Sql" library="pylib.public.DBHelper" type="teardown">
+<status status="PASS" starttime="20191213 11:57:49.258" endtime="20191213 11:57:49.328"></status>
+</kw>
+<status status="PASS" starttime="20191213 11:57:49.181" endtime="20191213 11:57:49.328" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20191213 11:57:48.997" endtime="20191213 11:57:49.330"></status>
+</suite>
+<status status="PASS" starttime="20191213 11:57:48.995" endtime="20191213 11:57:49.333"></status>
+</suite>
+<status status="PASS" starttime="20191213 11:57:48.869" endtime="20191213 11:57:49.335"></status>
+</suite>
+<status status="PASS" starttime="20191213 11:57:48.852" endtime="20191213 11:57:49.336"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Tc">Tc</stat>
+<stat pass="1" fail="0" id="s1-s1" name="Data-空白数据">Tc.Data-空白数据</stat>
+<stat pass="1" fail="0" id="s1-s1-s1" name="子商户">Tc.Data-空白数据.子商户</stat>
+<stat pass="1" fail="0" id="s1-s1-s1-s1" name="创建子商户">Tc.Data-空白数据.子商户.创建子商户</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
