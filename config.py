@@ -1,6 +1,8 @@
-# 测试环境URL
+# 存管通测试环境URL
 # test_env_url = 'http://172.16.202.163:3054/api/deposit.htm'
-test_env_url = 'http://172.16.202.160:3054/api/deposit.htm'
+cgt_test_env_url = 'http://172.16.202.160:3054/api/deposit.htm'
+# 工保网测试环境URL
+gbw_test_env_url = ''
 # 签名类型
 sign_type = 'MD5'
 # 测试专户号
@@ -16,5 +18,9 @@ username = 'yuxianjia'
 password = 'yuxianjia'
 database = 'deposit'
 
-
+gbw_biz_type = ['mchaccnt.submit.order', 'mchaccnt.change.notify', 'mchaccnt.match',
+                'mchaccnt.refund', 'mchaccnt.refund.open', 'mchaccnt.refund.notify',
+                'mchaccnt.withdraw.work.safety ', 'mchaccnt.withdraw.notify',
+                'mchsub.transfer', 'mchaccnt.transfer.notify', 'mchaccnt.balance.query_work',
+                'mchaccnt.transaction.total', 'mchaccnt.transaction.query']
 

@@ -1,6 +1,6 @@
 *** Settings ***
-Library  pylib.interface.MchsubCreateLib
-Library  pylib.public.DBHelper
+Library  pylib.interface.cgt.MchsubCreateLib
+Library  pylib.public.cgt.DBHelper
 
 *** Test Cases ***
 校验子商户名称 - tc00001
@@ -35,19 +35,42 @@ Library  pylib.public.DBHelper
         should be true  $result['message']=='success'
         [Teardown]  delete sql
 
-添加子商户 - tc00006
+校验是否开设供应商账户 - tc00006
         # 创建子商户并验证是否创建成功
-        ${addResult}=  get response mchsub create  yxj  yxj  13989353209  2451255827@qq.com
+        ${addResult}=  check is supplier
         should be true  $addResult['code']=='0000'
         should be true  $addResult['message']=='success'
         [Teardown]   delete sql
 
-再次创建 - tc00007
-       """
-       前提条件：外部子商户相同的情况下再次请求子商户创建接口
-       """
+校验是否开设担保商账户 - tc00007
+        # 创建子商户并验证是否创建成功
+        ${addResult}=  check is assure
+        should be true  $addResult['code']=='0000'
+        should be true  $addResult['message']=='success'
+        [Teardown]   delete sql
+
+创建子商户 - tc00008
+        # 创建子商户并验证是否创建成功
+        ${addResult}=  get response mchsub create  yxj  oman123456789  yxj  13989353209  2451255827@qq.com
+        should be true  $addResult['code']=='0000'
+        should be true  $addResult['message']=='success'
+        [Teardown]   delete sql
+
+
+再次创建子商户 - tc00009
+        # 创建子商户并验证是否创建成功并且子商户名称、外部商户号、联系人姓名、联系人电话和联系人邮箱都相同的情况
+        ${addResult}=  get response mchsub create  yxj  oman123456789  yxj  13989353209  2451255827@qq.com
+        should be true  $addResult['code']=='0000'
+        should be true  $addResult['message']=='success'
+        [Teardown]   delete sql
+
+再次创建(外部子商户相同) - tc00010
+       # 前提条件：外部子商户相同的情况下再次请求子商户创建接口
        ${addResult}=  out mch accnt no repeat
        should be true  $addResult['code']=='0000'
        should be true  $addResult['message']=='success'
        ${addResult}=  out mch accnt no repeat
+       should be true  $addResult['code']=='205'
+       should be true  $addResult['message']=='外部子商户号重复'
        [Teardown]  delete sql
+
