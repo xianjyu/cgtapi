@@ -7,6 +7,8 @@ gbw_test_env_url = ''
 sign_type = 'MD5'
 # 测试专户号
 mch_no = 'MH20181229115220NBUu'
+# 子商户账号
+mch_accnt_no = 'T0020191214172318000328'
 # 接口类型
 biz_type = ['mchsub.create', 'mchsub.edit', 'mchsub.bind.bankcard']
 # 测试环境对应的token

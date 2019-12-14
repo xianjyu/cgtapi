@@ -46,9 +46,10 @@ class MchsubCreateLib:
         return response
 
     def check_mch_accnt_name(self):
+        out_mch_accnt_no = cl.get_out_mch_accnt_no()
         biz_content = {
             'mch_accnt_name': '',
-            'out_mch_accnt_no': 'oman123456789',
+            'out_mch_accnt_no': out_mch_accnt_no,
             'link_name': 'yxj',
             'link_phone': '13989353209',
             'link_email': '2451255827@qq.com',
@@ -90,9 +91,10 @@ class MchsubCreateLib:
         return response
 
     def check_link_name(self):
+        out_mch_accnt_no = cl.get_out_mch_accnt_no()
         biz_content = {
             'mch_accnt_name': 'yxj',
-            'out_mch_accnt_no': 'oman123456789',
+            'out_mch_accnt_no': out_mch_accnt_no,
             'link_name': '',
             'link_phone': '13989353209',
             'link_email': '2451255827@qq.com',
@@ -112,9 +114,10 @@ class MchsubCreateLib:
         return response
 
     def check_link_phone(self):
+        out_mch_accnt_no = cl.get_out_mch_accnt_no()
         biz_content = {
             'mch_accnt_name': 'yxj',
-            'out_mch_accnt_no': 'oman123456789',
+            'out_mch_accnt_no': out_mch_accnt_no,
             'link_name': 'yxj',
             'link_phone': '',
             'link_email': '2451255827@qq.com',
@@ -134,9 +137,10 @@ class MchsubCreateLib:
         return response
 
     def check_link_email(self):
+        out_mch_accnt_no = cl.get_out_mch_accnt_no()
         biz_content = {
             'mch_accnt_name': 'yxj',
-            'out_mch_accnt_no': 'oman123456789',
+            'out_mch_accnt_no': out_mch_accnt_no,
             'link_name': 'yxj',
             'link_phone': '13989353209',
             'link_email': '',
@@ -156,9 +160,10 @@ class MchsubCreateLib:
         return response
 
     def check_is_supplier(self):
+        out_mch_accnt_no = cl.get_out_mch_accnt_no()
         biz_content = {
             'mch_accnt_name': 'yxj',
-            'out_mch_accnt_no': 'oman123456789',
+            'out_mch_accnt_no': out_mch_accnt_no,
             'link_name': 'yxj',
             'link_phone': '13989353209',
             'link_email': '2451255827@qq.com',
@@ -178,9 +183,10 @@ class MchsubCreateLib:
         return response
 
     def check_is_assure(self):
+        out_mch_accnt_no = cl.get_out_mch_accnt_no()
         biz_content = {
             'mch_accnt_name': 'yxj',
-            'out_mch_accnt_no': 'oman123456789',
+            'out_mch_accnt_no': out_mch_accnt_no,
             'link_name': 'yxj',
             'link_phone': '13989353209',
             'link_email': '2451255827@qq.com',
@@ -221,10 +227,32 @@ class MchsubCreateLib:
         print(response)
         return response
 
+    def mchsub_create_out_mch_accnt_no_not_repeat(self):
+        out_mch_accnt_no = cl.get_out_mch_accnt_no()
+        biz_content = {
+            'mch_accnt_name': 'yxj2',
+            'out_mch_accnt_no': out_mch_accnt_no,
+            'link_name': 'yxj2',
+            'link_phone': '13989353209',
+            'link_email': '2451255827@qq.com',
+            'is_supplier': 'N',
+            'is_assure': 'N'
+        }
+        data = {'biz_content': biz_content}
+        common_param = cl.get_common_param(0)
+        data.update(common_param)
+        data = json.dumps(data, separators=(',', ':'))
+        sign = cl.get_sign(data, token)
+        payload = {'data': data, 'sign': sign}
+        result = requests.post(cgt_test_env_url, data=payload)
+        result_data = result.json()['data']
+        response = json.loads(result_data)
+        print(response)
+        return response
 
 
 if __name__ == '__main__':
     mc = MchsubCreateLib()
-    # mc.get_response_mchsub_create('yxj', '', 'yxj', '13989353209', '2451255827@qq.com', 'N', 'N')
+    mc.get_response_mchsub_create('xianjyu', 'oman123456789', 'xianjyu', '13989353209', '2451255827@qq.com', 'N', 'N')
     # mc.check_out_mch_accnt_no()
 

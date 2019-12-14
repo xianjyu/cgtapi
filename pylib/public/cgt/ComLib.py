@@ -87,6 +87,10 @@ class ComLib:
         order_no = 'on' + timestamp
         return order_no
 
+    def get_number(self):
+        num = 'tt' + time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
+        return num
+
 
 if __name__ == '__main__':
     cl = ComLib()
@@ -95,3 +99,5 @@ if __name__ == '__main__':
     # print(cl.get_out_mch_accnt_no())
     # print(cl.get_biz_type(0))
     # cl.get_common_param(0)
+    cl.get_num()
+

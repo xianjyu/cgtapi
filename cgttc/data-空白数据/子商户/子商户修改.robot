@@ -1,6 +1,5 @@
 *** Settings ***
 Library  pylib.interface.cgt.MchsubEditLib
-Library  pylib.public.cgt.DBHelper
 
 *** Test Cases ***
 校验子商户账号名称 - tc00021
@@ -9,7 +8,6 @@ Library  pylib.public.cgt.DBHelper
         ${result}=  check mch accnt name
         should be true  $result['code']=='0000'
         should be true  $result['message']=='success'
-
 
 校验外部子商户号 - tc00022
         # 校验外部子商户号：out_mch_accnt_no
@@ -53,27 +51,23 @@ Library  pylib.public.cgt.DBHelper
 再次修改(修改成功后) - tc00028
         # 前提条件：订单号相同，已修改成功后再次请求
         sleep  1s
-        ${result}=  get response mchsub edit  yxj2  T0020191121104442000000
-                                         ...    13989353206  xianjyu@qq.com
+        ${result}=  get response mchsub edit  xianjyu  xianjyu  13989353209
         should be true  $result['code']=='0000'
         should be true  $result['message']=='success'
 
-        ${result}=  get response mchsub edit  yxj2  T0020191121104442000000
-                                         ...  3989353206  xianjyu@qq.com
+        ${result}=  get response mchsub edit  xianjyu  xianjyu  13989353209
         should be true  $result['code']=='305'
         should be true  $result['message']=='订单号重复，请勿重复提交'
 
 传不存在的子商户账号 - tc00029
         # 前提条件：传不存在的子商户号：T0020191213182413000108
-        ${result}=  get response mchsub edit  yxj2  T0020191213182413000108
-                                         ...    13989353206  xianjyu@qq.com
+        ${result}=  mchsub edit mchsub accnt no not exists  T0020191213182413000108
         should be true  $result['code']=='203'
         should be true  $result['message']=='子商户账号不存在'
 
 传不存在的子商户账号 - tc00030
         # 前提条件：传不存在的子商户号(顺网平台下的商户号)：T0020181120112414000007
-        ${result}=  get response mchsub edit  yxj2  T0020181120112414000007
-                                         ...    13989353206  xianjyu@qq.com
+        ${result}=  mchsub edit mchsub accnt no not exists  T0020181120112414000007
         should be true  $result['code']=='203'
         should be true  $result['message']=='子商户账号不存在'
 
@@ -91,26 +85,50 @@ Library  pylib.public.cgt.DBHelper
 传不同的外部子商户号 - tc00032
         # 前提条件：传不同的外部子商户号:out_mch_accnt_no
         sleep  1s
-        ${result}=  get response mchsub edit  xj2  T0020191121104442000000
-                                         ...    13989353206  xianjyu@qq.com
+        ${result}=  get response mchsub edit  xianjyu2  xianjyu2  3989353209  xianjyu@qq.com
         should be true  $result['code']=='0000'
         should be true  $result['message']=='success'
         sleep  1s
-        ${result}=  get response mchsub edit  xj2  T0020191121104442000000
-                                         ...  13989353206  xianjyu@qq.com
+        ${result}=  get response mchsub edit  xianjyu2  xianjyu2  13989353209  xianjyu@qq.com
         should be true  $result['code']=='0000'
         should be true  $result['message']=='success'
 
 订单号相同 - tc00033
         sleep  1s
-        ${result}=  get response mchsub edit  yxj2  T0020191121104442000000
-                                         ...    13989353206  xianjyu@qq.com
+        ${result}=  mchsub edit same order no
+        should be true  $result['code']=='0000'
+        should be true  $result['message']=='success'
+        ${result}=  mchsub edit same order no
+        should be true  $result['code']=='305'
+        should be true  $result['message']=='订单号重复，请勿重复提交'
+
+修改子商户账户名称 - tc00034
+        # 修改子商户账户名称：mch_accnt_name
+        sleep  1s
+        ${result}=  get response mchsub edit  xianjyu2  xianjyu2  13989353209
         should be true  $result['code']=='0000'
         should be true  $result['message']=='success'
 
-        ${result}=  get response mchsub edit  yxj2  T0020191121104442000000
-                                         ...  3989353206  xianjyu@qq.com
-        should be true  $result['code']=='305'
-        should be true  $result['message']=='订单号重复，请勿重复提交'
+修改联系人姓名 - tc00035
+        # 修改联系人姓名：link_name
+        sleep  1s
+        ${result}=  get response mchsub edit  xianjyu2  xianjyu2  13989353209
+        should be true  $result['code']=='0000'
+        should be true  $result['message']=='success'
+
+修改联系人电话 - tc00036
+        # 修改联系人电话：link_phone
+        sleep  1s
+        ${result}=  get response mchsub edit  xianjyu2  xianjyu2  13989353206
+        should be true  $result['code']=='0000'
+        should be true  $result['message']=='success'
+
+修改联系人邮箱 - tc00037
+        # 修改联系人姓名：link_name
+        sleep  1s
+        ${result}=  get response mchsub edit  xianjyu2  xianjyu2  13989353209  2451255827@qq.ocm
+        should be true  $result['code']=='0000'
+        should be true  $result['message']=='success'
+
 
 

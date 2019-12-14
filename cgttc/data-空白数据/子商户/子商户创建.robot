@@ -1,5 +1,6 @@
 *** Settings ***
 Library  pylib.interface.cgt.MchsubCreateLib
+Library  pylib.interface.cgt.ComLib
 Library  pylib.public.cgt.DBHelper
 
 *** Test Cases ***
@@ -32,44 +33,44 @@ Library  pylib.public.cgt.DBHelper
         ${result}=  check link email
         should be true  $result['code']=='0000'
         should be true  $result['message']=='success'
-        [Teardown]  delete sql
 
 校验是否开设供应商账户 - tc00006
-        # 校验是否开设供应商账户：is——supplier
+        # 6.校验是否开设供应商账户：is——supplier
         ${addResult}=  check is supplier
         should be true  $addResult['code']=='0000'
         should be true  $addResult['message']=='success'
-        [Teardown]   delete sql
 
 校验是否开设担保商账户 - tc00007
-        # 校验是否开设担保商账户
+        # 7.校验是否开设担保商账户
         ${addResult}=  check is assure
         should be true  $addResult['code']=='0000'
         should be true  $addResult['message']=='success'
-        [Teardown]   delete sql
 
 创建子商户 - tc00008
-        # 创建子商户并验证是否创建成功
-        ${addResult}=  get response mchsub create  yxj  oman123456789  yxj  13989353209  2451255827@qq.com
+        # 8.创建子商户并验证是否创建成功
+        ${number}=  get number
+        ${addResult}=  get response mchsub create  yxj  ${number}  yxj  13989353209  2451255827@qq.com
         should be true  $addResult['code']=='0000'
         should be true  $addResult['message']=='success'
-        [Teardown]   delete sql
 
 
-再次创建子商户 - tc00009
-        # 创建子商户并验证是否创建成功并且子商户名称、外部商户号、联系人姓名、联系人电话和联系人邮箱都相同的情况
-        ${addResult}=  get response mchsub create  yxj  oman123456789  yxj  13989353209  2451255827@qq.com
+再次创建子商户(外部子商户号不同) - tc00009
+        # 9.创建子商户并验证是否创建成功并且子商户名称、外部商户号、联系人姓名、联系人电话和联系人邮箱都相同的情况
+        ${addResult}=  mchsub create out mch accnt no not repeat
         should be true  $addResult['code']=='0000'
         should be true  $addResult['message']=='success'
-        [Teardown]   delete sql
+        sleep  1s
+        # 再次创建
+        ${addResult}=  mchsub create out mch accnt no not repeat
+        should be true  $addResult['code']=='0000'
+        should be true  $addResult['message']=='success'
 
 再次创建(外部子商户相同) - tc00010
-       # 前提条件：外部子商户相同的情况下再次请求子商户创建接口
+       # 10.前提条件：外部子商户相同的情况下再次请求子商户创建接口
        ${addResult}=  out mch accnt no repeat
        should be true  $addResult['code']=='0000'
        should be true  $addResult['message']=='success'
        ${addResult}=  out mch accnt no repeat
        should be true  $addResult['code']=='205'
        should be true  $addResult['message']=='外部子商户号重复'
-       [Teardown]  delete sql
 
