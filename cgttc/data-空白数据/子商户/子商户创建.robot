@@ -1,6 +1,6 @@
 *** Settings ***
 Library  pylib.interface.cgt.MchsubCreateLib
-Library  pylib.interface.cgt.ComLib
+Library  pylib.public.cgt.ComLib
 Library  pylib.public.cgt.DBHelper
 
 *** Test Cases ***
@@ -36,12 +36,14 @@ Library  pylib.public.cgt.DBHelper
 
 校验是否开设供应商账户 - tc00006
         # 6.校验是否开设供应商账户：is——supplier
+        sleep  1s
         ${addResult}=  check is supplier
         should be true  $addResult['code']=='0000'
         should be true  $addResult['message']=='success'
 
 校验是否开设担保商账户 - tc00007
         # 7.校验是否开设担保商账户
+        sleep  1s
         ${addResult}=  check is assure
         should be true  $addResult['code']=='0000'
         should be true  $addResult['message']=='success'
@@ -56,6 +58,7 @@ Library  pylib.public.cgt.DBHelper
 
 再次创建子商户(外部子商户号不同) - tc00009
         # 9.创建子商户并验证是否创建成功并且子商户名称、外部商户号、联系人姓名、联系人电话和联系人邮箱都相同的情况
+        sleep  1s
         ${addResult}=  mchsub create out mch accnt no not repeat
         should be true  $addResult['code']=='0000'
         should be true  $addResult['message']=='success'
@@ -67,6 +70,7 @@ Library  pylib.public.cgt.DBHelper
 
 再次创建(外部子商户相同) - tc00010
        # 10.前提条件：外部子商户相同的情况下再次请求子商户创建接口
+       sleep  2s
        ${addResult}=  out mch accnt no repeat
        should be true  $addResult['code']=='0000'
        should be true  $addResult['message']=='success'

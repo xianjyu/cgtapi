@@ -9,8 +9,10 @@ sign_type = 'MD5'
 mch_no = 'MH20181229115220NBUu'
 # 子商户账号
 mch_accnt_no = 'T0020191214172318000328'
+# 订单号,每次运行全部用例需要更改，只针对用例tc00063、tc00074
+order_no = '201912142102'
 # 接口类型
-biz_type = ['mchsub.create', 'mchsub.edit', 'mchsub.bind.bankcard']
+biz_type = ['mchsub.create', 'mchsub.edit', 'mchsub.bind.bankcard', 'mchsub.bind.nostro', 'mchaccnt.bind.notify']
 # 测试环境对应的token
 token = '9b389216c3c55a7c535510b33b9e6eb7'
 

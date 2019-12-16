@@ -12,6 +12,10 @@ class ComLib:
         self.biz_type = biz_type
         self.md5 = sign_type
 
+    def get_number(self):
+        num = 'tt' + time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
+        return num
+
     def get_time(self):
         """
         获取当前时间：年、月、日、时、分、秒
@@ -87,10 +91,6 @@ class ComLib:
         order_no = 'on' + timestamp
         return order_no
 
-    def get_number(self):
-        num = 'tt' + time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
-        return num
-
 
 if __name__ == '__main__':
     cl = ComLib()
@@ -99,5 +99,5 @@ if __name__ == '__main__':
     # print(cl.get_out_mch_accnt_no())
     # print(cl.get_biz_type(0))
     # cl.get_common_param(0)
-    cl.get_num()
+    # cl.get_num()
 

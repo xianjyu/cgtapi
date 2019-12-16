@@ -1,46 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20191214 18:17:18.202" rpa="false">
+<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20191216 11:36:57.634" rpa="false">
 <suite id="s1" name="Cgttc" source="D:\workfile\Git\cgtapi\cgttc">
 <suite id="s1-s1" name="Data-空白数据" source="D:\workfile\Git\cgtapi\cgttc\data-空白数据">
-<suite id="s1-s1-s1" name="子商户" source="D:\workfile\Git\cgtapi\cgttc\data-空白数据\子商户">
-<kw name="Get Response Mchsub Create" library="pylib.interface.cgt.MchsubCreateLib" type="setup">
-<doc>获取子商户创建的返回值
-:param mch_accnt_name:子商户名称
-:param out_mch_accnt_no:外部子商户号
-:param link_name:联系人姓名
-:param link_phone:联系人电话
-:param link_email:联系人邮箱
-:param is_supplier:是否是供应商子账户Y/N（如果是，则开设供应商子账户+供应商待结算子账户；如果否，则开设为普通子商户账户）是否是供应商子账户Y/N（如果是，则开设供应商子账户+供应商待结算子账户；如果否，则开设为普通子商户账户）
-:param is_assure:是否开启担保账户Y/N（如果是，则开设普通子商户账户+担保子账户；如果否，则开设为普通子商户账户）
-:return:返回一个子商户创建接口的返回报文</doc>
-<arguments>
-<arg>xianjyu</arg>
-<arg>oman123456789</arg>
-<arg>xianjyu</arg>
-<arg>13989353209</arg>
-<arg>2451255827@qq.com</arg>
-</arguments>
-<msg timestamp="20191214 18:17:18.369" level="INFO">{'biz_content': {'mch_accnt_no': 'T0020191214172318000328', 'out_mch_accnt_no': 'oman123456789'}, 'biz_type': 'mchsub.create', 'code': '205', 'mch_no': 'MH20181229115220NBUu', 'message': '外部子商户号重复', 'out_trans_no': 'otn20191214181718', 'sign_type': 'MD5', 'timestamp': '20191214061735'}</msg>
-<status status="PASS" starttime="20191214 18:17:18.304" endtime="20191214 18:17:18.369"></status>
-</kw>
-<suite id="s1-s1-s1-s1" name="子商户创建" source="D:\workfile\Git\cgtapi\cgttc\data-空白数据\子商户\子商户创建.robot">
-<test id="s1-s1-s1-s1-t1" name="创建子商户 - tc00008">
-<kw name="get number">
+<suite id="s1-s1-s1" name="往账请求" source="D:\workfile\Git\cgtapi\cgttc\data-空白数据\往账请求">
+<suite id="s1-s1-s1-s1" name="往账请求" source="D:\workfile\Git\cgtapi\cgttc\data-空白数据\往账请求\往账请求.robot">
+<test id="s1-s1-s1-s1-t1" name="正常请求往账接口 -tc00100">
+<kw name="Mchsub Create Out Mch Accnt No Not Repeat" library="pylib.interface.cgt.MchsubCreateLib">
 <assign>
-<var>${number}=</var>
+<var>${result}</var>
 </assign>
-<msg timestamp="20191214 18:17:18.470" level="FAIL">No keyword with name 'get number' found.</msg>
-<status status="FAIL" starttime="20191214 18:17:18.470" endtime="20191214 18:17:18.470"></status>
+<msg timestamp="20191216 11:36:59.764" level="FAIL">ConnectionError: HTTPConnectionPool(host='172.16.202.160', port=3054): Max retries exceeded with url: /api/deposit.htm (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000204EA04C160&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))</msg>
+<status status="FAIL" starttime="20191216 11:36:57.731" endtime="20191216 11:36:59.764"></status>
 </kw>
-<status status="FAIL" starttime="20191214 18:17:18.468" endtime="20191214 18:17:18.470" critical="yes">No keyword with name 'get number' found.</status>
+<status status="FAIL" starttime="20191216 11:36:57.730" endtime="20191216 11:36:59.765" critical="yes">ConnectionError: HTTPConnectionPool(host='172.16.202.160', port=3054): Max retries exceeded with url: /api/deposit.htm (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000204EA04C160&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))</status>
 </test>
-<status status="FAIL" starttime="20191214 18:17:18.369" endtime="20191214 18:17:18.471"></status>
+<status status="FAIL" starttime="20191216 11:36:57.656" endtime="20191216 11:36:59.767"></status>
 </suite>
-<status status="FAIL" starttime="20191214 18:17:18.224" endtime="20191214 18:17:18.475"></status>
+<status status="FAIL" starttime="20191216 11:36:57.654" endtime="20191216 11:36:59.770"></status>
 </suite>
-<status status="FAIL" starttime="20191214 18:17:18.222" endtime="20191214 18:17:18.476"></status>
+<status status="FAIL" starttime="20191216 11:36:57.652" endtime="20191216 11:36:59.772"></status>
 </suite>
-<status status="FAIL" starttime="20191214 18:17:18.204" endtime="20191214 18:17:18.477"></status>
+<status status="FAIL" starttime="20191216 11:36:57.635" endtime="20191216 11:36:59.774"></status>
 </suite>
 <statistics>
 <total>
@@ -52,11 +32,10 @@
 <suite>
 <stat pass="0" fail="1" id="s1" name="Cgttc">Cgttc</stat>
 <stat pass="0" fail="1" id="s1-s1" name="Data-空白数据">Cgttc.Data-空白数据</stat>
-<stat pass="0" fail="1" id="s1-s1-s1" name="子商户">Cgttc.Data-空白数据.子商户</stat>
-<stat pass="0" fail="1" id="s1-s1-s1-s1" name="子商户创建">Cgttc.Data-空白数据.子商户.子商户创建</stat>
+<stat pass="0" fail="1" id="s1-s1-s1" name="往账请求">Cgttc.Data-空白数据.往账请求</stat>
+<stat pass="0" fail="1" id="s1-s1-s1-s1" name="往账请求">Cgttc.Data-空白数据.往账请求.往账请求</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20191214 18:17:18.371" level="ERROR">Error in file 'D:\workfile\Git\cgtapi\cgttc\data-空白数据\子商户\子商户创建.robot': Importing test library 'pylib.interface.cgt.ComLib' failed: Module 'pylib.interface.cgt' does not contain 'ComLib'.</msg>
 </errors>
 </robot>

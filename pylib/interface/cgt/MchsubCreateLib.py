@@ -206,9 +206,10 @@ class MchsubCreateLib:
         return response
 
     def out_mch_accnt_no_repeat(self):
+        out_mch_accnt_no = cl.get_out_mch_accnt_no()
         biz_content = {
             'mch_accnt_name': 'yxj',
-            'out_mch_accnt_no': 'oman123456789',
+            'out_mch_accnt_no': out_mch_accnt_no,
             'link_name': 'yxj',
             'link_phone': '13989353209',
             'link_email': '2451255827@qq.com',

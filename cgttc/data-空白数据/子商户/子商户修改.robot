@@ -1,5 +1,6 @@
 *** Settings ***
 Library  pylib.interface.cgt.MchsubEditLib
+Variables  config.py
 
 *** Test Cases ***
 校验子商户账号名称 - tc00021
@@ -49,7 +50,7 @@ Library  pylib.interface.cgt.MchsubEditLib
         should be true  $result['message']=='success'
 
 再次修改(修改成功后) - tc00028
-        # 前提条件：订单号相同，已修改成功后再次请求
+        # 前提条件：传入订单号相同，已修改成功后再次请求
         sleep  1s
         ${result}=  get response mchsub edit  xianjyu  xianjyu  13989353209
         should be true  $result['code']=='0000'
@@ -93,37 +94,28 @@ Library  pylib.interface.cgt.MchsubEditLib
         should be true  $result['code']=='0000'
         should be true  $result['message']=='success'
 
-订单号相同 - tc00033
-        sleep  1s
-        ${result}=  mchsub edit same order no
-        should be true  $result['code']=='0000'
-        should be true  $result['message']=='success'
-        ${result}=  mchsub edit same order no
-        should be true  $result['code']=='305'
-        should be true  $result['message']=='订单号重复，请勿重复提交'
-
-修改子商户账户名称 - tc00034
+修改子商户账户名称 - tc00033
         # 修改子商户账户名称：mch_accnt_name
         sleep  1s
         ${result}=  get response mchsub edit  xianjyu2  xianjyu2  13989353209
         should be true  $result['code']=='0000'
         should be true  $result['message']=='success'
 
-修改联系人姓名 - tc00035
+修改联系人姓名 - tc00034
         # 修改联系人姓名：link_name
         sleep  1s
         ${result}=  get response mchsub edit  xianjyu2  xianjyu2  13989353209
         should be true  $result['code']=='0000'
         should be true  $result['message']=='success'
 
-修改联系人电话 - tc00036
+修改联系人电话 - tc00035
         # 修改联系人电话：link_phone
         sleep  1s
         ${result}=  get response mchsub edit  xianjyu2  xianjyu2  13989353206
         should be true  $result['code']=='0000'
         should be true  $result['message']=='success'
 
-修改联系人邮箱 - tc00037
+修改联系人邮箱 - tc00036
         # 修改联系人姓名：link_name
         sleep  1s
         ${result}=  get response mchsub edit  xianjyu2  xianjyu2  13989353209  2451255827@qq.ocm

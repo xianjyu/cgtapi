@@ -28,7 +28,16 @@ class DBHelper:
         self.conn.close()
         return result
 
+    def update_sql(self, mch_accnt_no):
+        sql = 'UPDATE bank_card SET status = ' + "'success'" + 'WHERE mch_no = ' + "'MH20181229115220NBUu'" + ' And mch_accnt_no = ' + "'" + mch_accnt_no + "'"
+        result = self.cursor.execute(sql)
+        self.conn.commit()
+        self.cursor.close()
+        self.conn.close()
+        return result
+
 
 if __name__ == '__main__':
     db = DBHelper()
-    db.select_sql()
+    # db.select_sql()
+    db.update_sql('T0020191105143247000007')

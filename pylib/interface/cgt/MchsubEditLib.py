@@ -1,6 +1,6 @@
 import json
 import requests
-from config import token, cgt_test_env_url, mch_accnt_no
+from config import token, cgt_test_env_url, mch_accnt_no, order_no
 from pylib.public.cgt.ComLib import ComLib
 
 
@@ -223,8 +223,7 @@ class MchsubEditLib:
         print(response)
         return response
 
-    def mchsub_edit_same_order_no(self):
-        order_no = cl.get_order_no()
+    def mchsub_edit_same_order_no(self, order_no):
         biz_content = {
             'mch_accnt_name': 'yxj',
             'out_mch_accnt_no': 'oman123456789',
