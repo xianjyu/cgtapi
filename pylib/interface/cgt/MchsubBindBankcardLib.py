@@ -572,11 +572,9 @@ class MchsubBindBankcardLib:
         return response
 
 
-
-
 if __name__ == '__main__':
     mbb = MchsubBindBankcardLib()
-    # mbb.get_response_mchsub_bind_bankcard_public('T0020191121104442000000', '0', '6214835498324017', '杭州银行', '杭州滨江支行', 'yuxj', '13989353209', 'http://172.16.202.160:3054/api/bankcard/notify.htm')
+    mbb.get_response_mchsub_bind_bankcard_public('T0020191216191030000000', '0', '6214835498324017', '杭州银行', '杭州滨江支行', 'yuxj', '13989353209', 'http://172.16.202.160:3054/api/bankcard/notify.htm')
     # mbb.check_mch_accnt_no()
     # mbb.check_card_accnt_type()
     # mbb.check_card_no()
@@ -588,4 +586,4 @@ if __name__ == '__main__':
     # mbb.check_notify_url()
     # mbb.mch_accnt_no_not_exist()
     # mbb.mch_accnt_no_other_platform()
-    mbb.same_mch_accnt_no()
+    # mbb.same_mch_accnt_no()

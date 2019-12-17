@@ -20,8 +20,10 @@ class MchsubCreateLib:
         :param link_name:联系人姓名
         :param link_phone:联系人电话
         :param link_email:联系人邮箱
-        :param is_supplier:是否是供应商子账户Y/N（如果是，则开设供应商子账户+供应商待结算子账户；如果否，则开设为普通子商户账户）是否是供应商子账户Y/N（如果是，则开设供应商子账户+供应商待结算子账户；如果否，则开设为普通子商户账户）
-        :param is_assure:是否开启担保账户Y/N（如果是，则开设普通子商户账户+担保子账户；如果否，则开设为普通子商户账户）
+        :param is_supplier:是否是供应商子账户Y/N
+            （如果是，则开设供应商子账户+供应商待结算子账户；如果否，则开设为普通子商户账户）是否是供应商子账户Y/N（如果是，则开设供应商子账户+供应商待结算子账户；如果否，则开设为普通子商户账户）
+        :param is_assure:是否开启担保账户Y/N
+            （如果是，则开设普通子商户账户+担保子账户；如果否，则开设为普通子商户账户）
         :return:返回一个子商户创建接口的返回报文
         """
         biz_content = {
@@ -231,10 +233,10 @@ class MchsubCreateLib:
     def mchsub_create_out_mch_accnt_no_not_repeat(self):
         out_mch_accnt_no = cl.get_out_mch_accnt_no()
         biz_content = {
-            'mch_accnt_name': 'yxj2',
+            'mch_accnt_name': '余道友',
             'out_mch_accnt_no': out_mch_accnt_no,
-            'link_name': 'yxj2',
-            'link_phone': '13989353209',
+            'link_name': '余道友',
+            'link_phone': '18158857961',
             'link_email': '2451255827@qq.com',
             'is_supplier': 'N',
             'is_assure': 'N'

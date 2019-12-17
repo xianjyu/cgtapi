@@ -38,10 +38,11 @@ class MchsubBindNstroLib:
         sign = cl.get_sign(data, token)
         payload = {'data': data, 'sign': sign}
         result = requests.post(cgt_test_env_url, data=payload)
+        print(result)
         result_data = result.json()['data']
-        response = json.loads(result_data)
-        print(response)
-        return response
+        # response = json.loads(result_data)
+        # print(response)
+        # return response
 
 
 if __name__ == '__main__':

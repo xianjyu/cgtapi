@@ -12,6 +12,14 @@ class MchsubEditLib:
         pass
 
     def get_response_mchsub_edit(self, mch_accnt_name, link_name, link_phone, link_email=None):
+        """
+        修改子商户信息：get_response_mchsub_edit
+        :param mch_accnt_name:
+        :param link_name:
+        :param link_phone:
+        :param link_email:
+        :return:返回子商户修改成功后的返回报文
+        """
         out_mch_accnt_no = cl.get_out_mch_accnt_no()
         order_no = cl.get_order_no()
         biz_content = {

@@ -1,6 +1,8 @@
 # 存管通测试环境URL
-# test_env_url = 'http://172.16.202.163:3054/api/deposit.htm'
-cgt_test_env_url = 'http://172.16.202.160:3054/api/deposit.htm'
+# test_env_url = 'http://172.16.202.160:3054/api/deposit.htm'
+cgt_test_env_url = 'http://172.16.202.163:3054/api/deposit.htm'
+# 存管通预发布环境URL
+# cgt_pre_env_url = 'http://172.16.202.163:3054/api/deposit.htm'
 # 工保网测试环境URL
 gbw_test_env_url = ''
 # 签名类型
@@ -12,15 +14,25 @@ mch_accnt_no = 'T0020191214172318000328'
 # 订单号,每次运行全部用例需要更改，只针对用例tc00063、tc00074
 order_no = '201912142102'
 # 接口类型
-biz_type = ['mchsub.create', 'mchsub.edit', 'mchsub.bind.bankcard', 'mchsub.bind.nostro', 'mchaccnt.bind.notify']
+biz_type = ['mchsub.create', 'mchsub.edit', 'mchsub.bind.bankcard', 'mchsub.bind.nostro', 'mchaccnt.bind.notify',
+            'mchaccnt.withdraw']
 # 测试环境对应的token
-token = '9b389216c3c55a7c535510b33b9e6eb7'
+# token = '9b389216c3c55a7c535510b33b9e6eb7'
+# 预发布环境对应的token
+token = '9b389216c3c55a7c535510b3ghlhhhhh'
 
-# 数据库参数
-localhost = '172.16.202.160'
+# 测试环境数据库参数
+# localhost = '172.16.202.160'
+# username = 'yuxianjia'
+# password = 'yuxianjia'
+# database = 'deposit'
+
+# 测试环境数据库参数
+localhost = '172.16.202.162'
 username = 'yuxianjia'
 password = 'yuxianjia'
 database = 'deposit'
+
 
 gbw_biz_type = ['mchaccnt.submit.order', 'mchaccnt.change.notify', 'mchaccnt.match',
                 'mchaccnt.refund', 'mchaccnt.refund.open', 'mchaccnt.refund.notify',

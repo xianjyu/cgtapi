@@ -28,9 +28,27 @@ class DBHelper:
         self.conn.close()
         return result
 
-    def update_sql(self, mch_accnt_no):
-        sql = 'UPDATE bank_card SET status = ' + "'success'" + 'WHERE mch_no = ' + "'MH20181229115220NBUu'" + ' And mch_accnt_no = ' + "'" + mch_accnt_no + "'"
+    def update_status_sql(self, mch_accnt_no):
+        sql = 'UPDATE bank_card SET status = ' + "'success'" + ' WHERE mch_no = ' + "'MH20181229115220NBUu'" + ' And mch_accnt_no = ' + "'" + mch_accnt_no + "'"
+        print(sql)
         result = self.cursor.execute(sql)
+        if result == 1:
+            print("数据库修改状态成功！")
+        elif result == 0:
+            print("数据库修改状态失败！")
+        self.conn.commit()
+        self.cursor.close()
+        self.conn.close()
+        return result
+
+    def update_amount_sql(self, mch_accnt_no):
+        sql = 'UPDATE mch_accnt SET remain_amt = ' + "'1000'" + ', settled_amount = ' + "'1000'" + ' WHERE mch_no = ' + "'MH20181229115220NBUu'" + ' And mch_accnt_no = ' + "'" + mch_accnt_no + "'"
+        print(sql)
+        result = self.cursor.execute(sql)
+        if result == 1:
+            print("数据库修改状态成功！")
+        elif result == 0:
+            print("数据库修改状态失败！")
         self.conn.commit()
         self.cursor.close()
         self.conn.close()
@@ -40,4 +58,5 @@ class DBHelper:
 if __name__ == '__main__':
     db = DBHelper()
     # db.select_sql()
-    db.update_sql('T0020191105143247000007')
+    db.update_status_sql('T0020191217142756000008')
+    # db.update_amount_sql('T0020191217140921000005')
