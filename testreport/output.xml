@@ -1,117 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20191217 16:17:03.555" rpa="false">
-<suite id="s1" name="绑定银行卡(对私)" source="D:\workfile\Git\cgtapi\cgttc\data-空白数据\绑定银行卡\绑定银行卡(对私).robot">
-<test id="s1-t1" name="子商户账户为空 - tc00151">
-<kw name="Mchsub Create Out Mch Accnt No Not Repeat" library="pylib.interface.cgt.MchsubCreateLib">
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20191217 16:17:04.008" level="INFO">{'biz_content': {'mch_accnt_no': 'T0020191217161703000048', 'out_mch_accnt_no': 'oman20191217161703'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'success', 'out_trans_no': 'otn20191217161703', 'sign_type': 'MD5', 'timestamp': '20191217041704'}</msg>
-<msg timestamp="20191217 16:17:04.008" level="INFO">${result} = {'biz_content': {'mch_accnt_no': 'T0020191217161703000048', 'out_mch_accnt_no': 'oman20191217161703'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'succes...</msg>
-<status status="PASS" starttime="20191217 16:17:03.688" endtime="20191217 16:17:04.008"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['code']=='0000'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:04.008" endtime="20191217 16:17:04.011"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['message']=='success'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:04.012" endtime="20191217 16:17:04.012"></status>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>&amp;{result}[biz_content]</arg>
-</arguments>
-<assign>
-<var>${biz_content}</var>
-</assign>
-<msg timestamp="20191217 16:17:04.013" level="INFO">${biz_content} = {'mch_accnt_no': 'T0020191217161703000048', 'out_mch_accnt_no': 'oman20191217161703'}</msg>
-<status status="PASS" starttime="20191217 16:17:04.013" endtime="20191217 16:17:04.013"></status>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>&amp;{biz_content}[mch_accnt_no]</arg>
-</arguments>
-<assign>
-<var>${mch_accnt_no}</var>
-</assign>
-<msg timestamp="20191217 16:17:04.013" level="INFO">${mch_accnt_no} = T0020191217161703000048</msg>
-<status status="PASS" starttime="20191217 16:17:04.013" endtime="20191217 16:17:04.013"></status>
-</kw>
-<kw name="Update Amount Sql" library="pylib.public.cgt.DBHelper">
-<arguments>
-<arg>${mch_accnt_no}</arg>
-</arguments>
-<assign>
-<var>${sql_amount}</var>
-</assign>
-<msg timestamp="20191217 16:17:04.076" level="INFO">UPDATE mch_accnt SET remain_amt = '1000', settled_amount = '1000' WHERE mch_no = 'MH20181229115220NBUu' And mch_accnt_no = 'T0020191217161703000048'
-数据库修改状态成功！</msg>
-<msg timestamp="20191217 16:17:04.076" level="INFO">${sql_amount} = 1</msg>
-<status status="PASS" starttime="20191217 16:17:04.014" endtime="20191217 16:17:04.076"></status>
-</kw>
-<kw name="Check Mch Accnt No Bind Bankcard Private" library="pylib.interface.cgt.MchsubBindBankcardPrivateLib">
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20191217 16:17:04.096" level="INFO">{'biz_type': 'mchsub.bind.bankcard', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{子商户账号}', 'sign_type': 'MD5', 'timestamp': '20191217041704'}</msg>
-<msg timestamp="20191217 16:17:04.096" level="INFO">${result} = {'biz_type': 'mchsub.bind.bankcard', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{子商户账号}', 'sign_type': 'MD5', 'timestamp': '20191217041704'}</msg>
-<status status="PASS" starttime="20191217 16:17:04.077" endtime="20191217 16:17:04.096"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['code']=='101'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:04.097" endtime="20191217 16:17:04.097"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['message']=='必输参数不能为空:{子商户账号}'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:04.098" endtime="20191217 16:17:04.098"></status>
-</kw>
-<status status="PASS" starttime="20191217 16:17:03.687" endtime="20191217 16:17:04.099" critical="yes"></status>
-</test>
-<test id="s1-t2" name="订单号为空 - tc00152">
+<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20191219 18:40:42.021" rpa="false">
+<suite id="s1" name="Cgttc" source="D:\workfile\Git\cgtapi\cgttc">
+<suite id="s1-s1" name="Data-空白数据" source="D:\workfile\Git\cgtapi\cgttc\data-空白数据">
+<suite id="s1-s1-s1" name="绑定银行卡" source="D:\workfile\Git\cgtapi\cgttc\data-空白数据\绑定银行卡">
+<suite id="s1-s1-s1-s1" name="绑定银行卡(对私)" source="D:\workfile\Git\cgtapi\cgttc\data-空白数据\绑定银行卡\绑定银行卡(对私).robot">
+<test id="s1-s1-s1-s1-t1" name="authen_type为空 - tc00166">
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>1s</arg>
 </arguments>
-<msg timestamp="20191217 16:17:05.102" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20191217 16:17:04.100" endtime="20191217 16:17:05.102"></status>
+<msg timestamp="20191219 18:40:43.163" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20191219 18:40:42.162" endtime="20191219 18:40:43.163"></status>
 </kw>
 <kw name="Mchsub Create Out Mch Accnt No Not Repeat" library="pylib.interface.cgt.MchsubCreateLib">
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20191217 16:17:05.600" level="INFO">{'biz_content': {'mch_accnt_no': 'T0020191217161705000049', 'out_mch_accnt_no': 'oman20191217161705'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'success', 'out_trans_no': 'otn20191217161705', 'sign_type': 'MD5', 'timestamp': '20191217041705'}</msg>
-<msg timestamp="20191217 16:17:05.600" level="INFO">${result} = {'biz_content': {'mch_accnt_no': 'T0020191217161705000049', 'out_mch_accnt_no': 'oman20191217161705'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'succes...</msg>
-<status status="PASS" starttime="20191217 16:17:05.103" endtime="20191217 16:17:05.600"></status>
+<msg timestamp="20191219 18:40:43.198" level="INFO">{'biz_content': {'mch_accnt_no': 'T0020191219184043000188', 'out_mch_accnt_no': 'oman20191219184043'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'success', 'out_trans_no': 'otn20191219184043', 'sign_type': 'MD5', 'timestamp': '20191219064043'}</msg>
+<msg timestamp="20191219 18:40:43.198" level="INFO">${result} = {'biz_content': {'mch_accnt_no': 'T0020191219184043000188', 'out_mch_accnt_no': 'oman20191219184043'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'succes...</msg>
+<status status="PASS" starttime="20191219 18:40:43.164" endtime="20191219 18:40:43.198"></status>
 </kw>
 <kw name="Should Be True" library="BuiltIn">
 <doc>Fails if the given condition is not true.</doc>
 <arguments>
 <arg>$result['code']=='0000'</arg>
 </arguments>
-<status status="PASS" starttime="20191217 16:17:05.601" endtime="20191217 16:17:05.601"></status>
+<status status="PASS" starttime="20191219 18:40:43.198" endtime="20191219 18:40:43.202"></status>
 </kw>
 <kw name="Should Be True" library="BuiltIn">
 <doc>Fails if the given condition is not true.</doc>
 <arguments>
 <arg>$result['message']=='success'</arg>
 </arguments>
-<status status="PASS" starttime="20191217 16:17:05.601" endtime="20191217 16:17:05.602"></status>
+<status status="PASS" starttime="20191219 18:40:43.202" endtime="20191219 18:40:43.203"></status>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <doc>Returns the given values which can then be assigned to a variables.</doc>
@@ -121,8 +43,8 @@
 <assign>
 <var>${biz_content}</var>
 </assign>
-<msg timestamp="20191217 16:17:05.602" level="INFO">${biz_content} = {'mch_accnt_no': 'T0020191217161705000049', 'out_mch_accnt_no': 'oman20191217161705'}</msg>
-<status status="PASS" starttime="20191217 16:17:05.602" endtime="20191217 16:17:05.602"></status>
+<msg timestamp="20191219 18:40:43.204" level="INFO">${biz_content} = {'mch_accnt_no': 'T0020191219184043000188', 'out_mch_accnt_no': 'oman20191219184043'}</msg>
+<status status="PASS" starttime="20191219 18:40:43.203" endtime="20191219 18:40:43.204"></status>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <doc>Returns the given values which can then be assigned to a variables.</doc>
@@ -132,412 +54,141 @@
 <assign>
 <var>${mch_accnt_no}</var>
 </assign>
-<msg timestamp="20191217 16:17:05.603" level="INFO">${mch_accnt_no} = T0020191217161705000049</msg>
-<status status="PASS" starttime="20191217 16:17:05.602" endtime="20191217 16:17:05.603"></status>
+<msg timestamp="20191219 18:40:43.204" level="INFO">${mch_accnt_no} = T0020191219184043000188</msg>
+<status status="PASS" starttime="20191219 18:40:43.204" endtime="20191219 18:40:43.204"></status>
 </kw>
 <kw name="Update Amount Sql" library="pylib.public.cgt.DBHelper">
 <arguments>
+<arg>100000</arg>
+<arg>100000</arg>
 <arg>${mch_accnt_no}</arg>
 </arguments>
 <assign>
 <var>${sql_amount}</var>
 </assign>
-<msg timestamp="20191217 16:17:05.654" level="INFO">UPDATE mch_accnt SET remain_amt = '1000', settled_amount = '1000' WHERE mch_no = 'MH20181229115220NBUu' And mch_accnt_no = 'T0020191217161705000049'
+<msg timestamp="20191219 18:40:43.242" level="INFO">UPDATE mch_accnt SET remain_amt = '100000', settled_amount = '100000' WHERE mch_no = 'MH20181229115220NBUu' And mch_accnt_no = 'T0020191219184043000188'
 数据库修改状态成功！</msg>
-<msg timestamp="20191217 16:17:05.654" level="INFO">${sql_amount} = 1</msg>
-<status status="PASS" starttime="20191217 16:17:05.603" endtime="20191217 16:17:05.654"></status>
+<msg timestamp="20191219 18:40:43.242" level="INFO">${sql_amount} = 1</msg>
+<status status="PASS" starttime="20191219 18:40:43.204" endtime="20191219 18:40:43.242"></status>
 </kw>
-<kw name="Check Order No Bind Bankcard Private" library="pylib.interface.cgt.MchsubBindBankcardPrivateLib">
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20191217 16:17:05.675" level="INFO">{'biz_type': 'mchsub.bind.bankcard', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{订单号}', 'sign_type': 'MD5', 'timestamp': '20191217041705'}</msg>
-<msg timestamp="20191217 16:17:05.675" level="INFO">${result} = {'biz_type': 'mchsub.bind.bankcard', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{订单号}', 'sign_type': 'MD5', 'timestamp': '20191217041705'}</msg>
-<status status="PASS" starttime="20191217 16:17:05.654" endtime="20191217 16:17:05.675"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['code']=='101'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:05.676" endtime="20191217 16:17:05.676"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['message']=='必输参数不能为空:{订单号}'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:05.677" endtime="20191217 16:17:05.677"></status>
-</kw>
-<status status="PASS" starttime="20191217 16:17:04.100" endtime="20191217 16:17:05.678" critical="yes"></status>
-</test>
-<test id="s1-t3" name="银行卡账户类型为空 - tc00153">
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>1s</arg>
-</arguments>
-<msg timestamp="20191217 16:17:06.682" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20191217 16:17:05.681" endtime="20191217 16:17:06.682"></status>
-</kw>
-<kw name="Mchsub Create Out Mch Accnt No Not Repeat" library="pylib.interface.cgt.MchsubCreateLib">
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20191217 16:17:06.795" level="INFO">{'biz_content': {'mch_accnt_no': 'T0020191217161706000050', 'out_mch_accnt_no': 'oman20191217161706'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'success', 'out_trans_no': 'otn20191217161706', 'sign_type': 'MD5', 'timestamp': '20191217041706'}</msg>
-<msg timestamp="20191217 16:17:06.796" level="INFO">${result} = {'biz_content': {'mch_accnt_no': 'T0020191217161706000050', 'out_mch_accnt_no': 'oman20191217161706'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'succes...</msg>
-<status status="PASS" starttime="20191217 16:17:06.683" endtime="20191217 16:17:06.796"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['code']=='0000'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:06.796" endtime="20191217 16:17:06.796"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['message']=='success'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:06.797" endtime="20191217 16:17:06.797"></status>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>&amp;{result}[biz_content]</arg>
-</arguments>
-<assign>
-<var>${biz_content}</var>
-</assign>
-<msg timestamp="20191217 16:17:06.798" level="INFO">${biz_content} = {'mch_accnt_no': 'T0020191217161706000050', 'out_mch_accnt_no': 'oman20191217161706'}</msg>
-<status status="PASS" starttime="20191217 16:17:06.798" endtime="20191217 16:17:06.798"></status>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>&amp;{biz_content}[mch_accnt_no]</arg>
-</arguments>
-<assign>
-<var>${mch_accnt_no}</var>
-</assign>
-<msg timestamp="20191217 16:17:06.799" level="INFO">${mch_accnt_no} = T0020191217161706000050</msg>
-<status status="PASS" starttime="20191217 16:17:06.798" endtime="20191217 16:17:06.799"></status>
-</kw>
-<kw name="Update Amount Sql" library="pylib.public.cgt.DBHelper">
+<kw name="Check Authen Type Bind Bankcard Private" library="pylib.interface.cgt.MchsubBindBankcardPrivateLib">
 <arguments>
 <arg>${mch_accnt_no}</arg>
+<arg>1</arg>
+<arg>6217866300004303385</arg>
+<arg>中国银行</arg>
+<arg>中国银行支行</arg>
+<arg>余道友</arg>
+<arg>18158857961</arg>
+<arg>http://172.16.202.160:3054/api/bankcard/notify.htm</arg>
+<arg>0</arg>
+<arg>342423196910292879</arg>
+<arg>0</arg>
+<arg>104100000004</arg>
+<arg>123</arg>
+<arg>2100-01-01</arg>
 </arguments>
 <assign>
-<var>${sql_amount}</var>
+<var>${result2}</var>
 </assign>
-<msg timestamp="20191217 16:17:06.842" level="INFO">UPDATE mch_accnt SET remain_amt = '1000', settled_amount = '1000' WHERE mch_no = 'MH20181229115220NBUu' And mch_accnt_no = 'T0020191217161706000050'
-数据库修改状态成功！</msg>
-<msg timestamp="20191217 16:17:06.842" level="INFO">${sql_amount} = 1</msg>
-<status status="PASS" starttime="20191217 16:17:06.799" endtime="20191217 16:17:06.842"></status>
-</kw>
-<kw name="Check Card Accnt Type Bind Bankcard Private" library="pylib.interface.cgt.MchsubBindBankcardPrivateLib">
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20191217 16:17:06.863" level="INFO">{'biz_type': 'mchsub.bind.bankcard', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{银行卡账户类型}', 'sign_type': 'MD5', 'timestamp': '20191217041706'}</msg>
-<msg timestamp="20191217 16:17:06.863" level="INFO">${result} = {'biz_type': 'mchsub.bind.bankcard', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{银行卡账户类型}', 'sign_type': 'MD5', 'timestamp': '20191217041706'}</msg>
-<status status="PASS" starttime="20191217 16:17:06.842" endtime="20191217 16:17:06.863"></status>
+<msg timestamp="20191219 18:40:43.874" level="INFO">{'biz_content': {'card_no': '6217866300004303385', 'mch_accnt_no': 'T0020191219184043000188', 'remark': '绑卡成功', 'status': 'success'}, 'biz_type': 'mchsub.bind.bankcard', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'success', 'out_trans_no': 'otn20191219184043', 'sign_type': 'MD5', 'timestamp': '20191219064043'}</msg>
+<msg timestamp="20191219 18:40:43.875" level="INFO">${result2} = {'biz_content': {'card_no': '6217866300004303385', 'mch_accnt_no': 'T0020191219184043000188', 'remark': '绑卡成功', 'status': 'success'}, 'biz_type': 'mchsub.bind.bankcard', 'code': '0000', 'mch_no': 'MH2...</msg>
+<status status="PASS" starttime="20191219 18:40:43.243" endtime="20191219 18:40:43.875"></status>
 </kw>
 <kw name="Should Be True" library="BuiltIn">
 <doc>Fails if the given condition is not true.</doc>
 <arguments>
-<arg>$result['code']=='101'</arg>
+<arg>$result2['code']=='0000'</arg>
 </arguments>
-<status status="PASS" starttime="20191217 16:17:06.864" endtime="20191217 16:17:06.864"></status>
+<status status="PASS" starttime="20191219 18:40:43.875" endtime="20191219 18:40:43.875"></status>
 </kw>
 <kw name="Should Be True" library="BuiltIn">
 <doc>Fails if the given condition is not true.</doc>
 <arguments>
-<arg>$result['message']=='必输参数不能为空:{银行卡账户类型}'</arg>
+<arg>$result2['message']=='success'</arg>
 </arguments>
-<status status="PASS" starttime="20191217 16:17:06.865" endtime="20191217 16:17:06.865"></status>
+<status status="PASS" starttime="20191219 18:40:43.875" endtime="20191219 18:40:43.875"></status>
 </kw>
-<status status="PASS" starttime="20191217 16:17:05.680" endtime="20191217 16:17:06.866" critical="yes"></status>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>&amp;{result2}[biz_content]</arg>
+</arguments>
+<assign>
+<var>${biz_content2}</var>
+</assign>
+<msg timestamp="20191219 18:40:43.876" level="INFO">${biz_content2} = {'card_no': '6217866300004303385', 'mch_accnt_no': 'T0020191219184043000188', 'remark': '绑卡成功', 'status': 'success'}</msg>
+<status status="PASS" starttime="20191219 18:40:43.875" endtime="20191219 18:40:43.876"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>&amp;{biz_content2}[card_no]</arg>
+</arguments>
+<assign>
+<var>${card_no}</var>
+</assign>
+<msg timestamp="20191219 18:40:43.876" level="INFO">${card_no} = 6217866300004303385</msg>
+<status status="PASS" starttime="20191219 18:40:43.876" endtime="20191219 18:40:43.876"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>&amp;{biz_content2}[remark]</arg>
+</arguments>
+<assign>
+<var>${remark}</var>
+</assign>
+<msg timestamp="20191219 18:40:43.876" level="INFO">${remark} = 绑卡成功</msg>
+<status status="PASS" starttime="20191219 18:40:43.876" endtime="20191219 18:40:43.876"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>&amp;{biz_content2}[status]</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20191219 18:40:43.877" level="INFO">${status} = success</msg>
+<status status="PASS" starttime="20191219 18:40:43.876" endtime="20191219 18:40:43.877"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>$remark=='绑卡成功'</arg>
+</arguments>
+<status status="PASS" starttime="20191219 18:40:43.877" endtime="20191219 18:40:43.877"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>$status=='success'</arg>
+</arguments>
+<status status="PASS" starttime="20191219 18:40:43.877" endtime="20191219 18:40:43.879"></status>
+</kw>
+<status status="PASS" starttime="20191219 18:40:42.162" endtime="20191219 18:40:43.879" critical="yes"></status>
 </test>
-<test id="s1-t4" name="银行卡号为空 - tc00154">
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>1s</arg>
-</arguments>
-<msg timestamp="20191217 16:17:07.872" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20191217 16:17:06.869" endtime="20191217 16:17:07.872"></status>
-</kw>
-<kw name="Mchsub Create Out Mch Accnt No Not Repeat" library="pylib.interface.cgt.MchsubCreateLib">
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20191217 16:17:07.997" level="INFO">{'biz_content': {'mch_accnt_no': 'T0020191217161707000051', 'out_mch_accnt_no': 'oman20191217161707'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'success', 'out_trans_no': 'otn20191217161707', 'sign_type': 'MD5', 'timestamp': '20191217041708'}</msg>
-<msg timestamp="20191217 16:17:07.998" level="INFO">${result} = {'biz_content': {'mch_accnt_no': 'T0020191217161707000051', 'out_mch_accnt_no': 'oman20191217161707'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'succes...</msg>
-<status status="PASS" starttime="20191217 16:17:07.872" endtime="20191217 16:17:07.998"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['code']=='0000'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:07.998" endtime="20191217 16:17:07.999"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['message']=='success'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:07.999" endtime="20191217 16:17:08.000"></status>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>&amp;{result}[biz_content]</arg>
-</arguments>
-<assign>
-<var>${biz_content}</var>
-</assign>
-<msg timestamp="20191217 16:17:08.000" level="INFO">${biz_content} = {'mch_accnt_no': 'T0020191217161707000051', 'out_mch_accnt_no': 'oman20191217161707'}</msg>
-<status status="PASS" starttime="20191217 16:17:08.000" endtime="20191217 16:17:08.000"></status>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>&amp;{biz_content}[mch_accnt_no]</arg>
-</arguments>
-<assign>
-<var>${mch_accnt_no}</var>
-</assign>
-<msg timestamp="20191217 16:17:08.001" level="INFO">${mch_accnt_no} = T0020191217161707000051</msg>
-<status status="PASS" starttime="20191217 16:17:08.001" endtime="20191217 16:17:08.001"></status>
-</kw>
-<kw name="Update Amount Sql" library="pylib.public.cgt.DBHelper">
-<arguments>
-<arg>${mch_accnt_no}</arg>
-</arguments>
-<assign>
-<var>${sql_amount}</var>
-</assign>
-<msg timestamp="20191217 16:17:08.135" level="INFO">UPDATE mch_accnt SET remain_amt = '1000', settled_amount = '1000' WHERE mch_no = 'MH20181229115220NBUu' And mch_accnt_no = 'T0020191217161707000051'
-数据库修改状态成功！</msg>
-<msg timestamp="20191217 16:17:08.135" level="INFO">${sql_amount} = 1</msg>
-<status status="PASS" starttime="20191217 16:17:08.001" endtime="20191217 16:17:08.135"></status>
-</kw>
-<kw name="Check Card No Bind Bankcard Private" library="pylib.interface.cgt.MchsubBindBankcardPrivateLib">
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20191217 16:17:08.155" level="INFO">{'biz_type': 'mchsub.bind.bankcard', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{银行卡号}', 'sign_type': 'MD5', 'timestamp': '20191217041708'}</msg>
-<msg timestamp="20191217 16:17:08.155" level="INFO">${result} = {'biz_type': 'mchsub.bind.bankcard', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{银行卡号}', 'sign_type': 'MD5', 'timestamp': '20191217041708'}</msg>
-<status status="PASS" starttime="20191217 16:17:08.136" endtime="20191217 16:17:08.155"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['code']=='101'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:08.156" endtime="20191217 16:17:08.156"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['message']=='必输参数不能为空:{银行卡号}'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:08.157" endtime="20191217 16:17:08.157"></status>
-</kw>
-<status status="PASS" starttime="20191217 16:17:06.867" endtime="20191217 16:17:08.158" critical="yes"></status>
-</test>
-<test id="s1-t5" name="开户行名称为空 - tc00155">
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>1s</arg>
-</arguments>
-<msg timestamp="20191217 16:17:09.165" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20191217 16:17:08.163" endtime="20191217 16:17:09.165"></status>
-</kw>
-<kw name="Mchsub Create Out Mch Accnt No Not Repeat" library="pylib.interface.cgt.MchsubCreateLib">
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20191217 16:17:09.251" level="INFO">{'biz_content': {'mch_accnt_no': 'T0020191217161709000052', 'out_mch_accnt_no': 'oman20191217161709'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'success', 'out_trans_no': 'otn20191217161709', 'sign_type': 'MD5', 'timestamp': '20191217041709'}</msg>
-<msg timestamp="20191217 16:17:09.251" level="INFO">${result} = {'biz_content': {'mch_accnt_no': 'T0020191217161709000052', 'out_mch_accnt_no': 'oman20191217161709'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'succes...</msg>
-<status status="PASS" starttime="20191217 16:17:09.165" endtime="20191217 16:17:09.251"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['code']=='0000'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:09.253" endtime="20191217 16:17:09.253"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['message']=='success'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:09.253" endtime="20191217 16:17:09.254"></status>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>&amp;{result}[biz_content]</arg>
-</arguments>
-<assign>
-<var>${biz_content}</var>
-</assign>
-<msg timestamp="20191217 16:17:09.255" level="INFO">${biz_content} = {'mch_accnt_no': 'T0020191217161709000052', 'out_mch_accnt_no': 'oman20191217161709'}</msg>
-<status status="PASS" starttime="20191217 16:17:09.254" endtime="20191217 16:17:09.255"></status>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>&amp;{biz_content}[mch_accnt_no]</arg>
-</arguments>
-<assign>
-<var>${mch_accnt_no}</var>
-</assign>
-<msg timestamp="20191217 16:17:09.255" level="INFO">${mch_accnt_no} = T0020191217161709000052</msg>
-<status status="PASS" starttime="20191217 16:17:09.255" endtime="20191217 16:17:09.255"></status>
-</kw>
-<kw name="Update Amount Sql" library="pylib.public.cgt.DBHelper">
-<arguments>
-<arg>${mch_accnt_no}</arg>
-</arguments>
-<assign>
-<var>${sql_amount}</var>
-</assign>
-<msg timestamp="20191217 16:17:09.320" level="INFO">UPDATE mch_accnt SET remain_amt = '1000', settled_amount = '1000' WHERE mch_no = 'MH20181229115220NBUu' And mch_accnt_no = 'T0020191217161709000052'
-数据库修改状态成功！</msg>
-<msg timestamp="20191217 16:17:09.320" level="INFO">${sql_amount} = 1</msg>
-<status status="PASS" starttime="20191217 16:17:09.255" endtime="20191217 16:17:09.320"></status>
-</kw>
-<kw name="Check Bank Name Bind Bankcard Private" library="pylib.interface.cgt.MchsubBindBankcardPrivateLib">
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20191217 16:17:09.340" level="INFO">{'biz_type': 'mchsub.bind.bankcard', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{开户行名称}', 'sign_type': 'MD5', 'timestamp': '20191217041709'}</msg>
-<msg timestamp="20191217 16:17:09.340" level="INFO">${result} = {'biz_type': 'mchsub.bind.bankcard', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{开户行名称}', 'sign_type': 'MD5', 'timestamp': '20191217041709'}</msg>
-<status status="PASS" starttime="20191217 16:17:09.320" endtime="20191217 16:17:09.340"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['code']=='101'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:09.340" endtime="20191217 16:17:09.341"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['message']=='必输参数不能为空:{开户行名称}'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:09.341" endtime="20191217 16:17:09.342"></status>
-</kw>
-<status status="PASS" starttime="20191217 16:17:08.160" endtime="20191217 16:17:09.342" critical="yes"></status>
-</test>
-<test id="s1-t6" name="开户行名称为空 - tc00156">
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>1s</arg>
-</arguments>
-<msg timestamp="20191217 16:17:10.345" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20191217 16:17:09.344" endtime="20191217 16:17:10.345"></status>
-</kw>
-<kw name="Mchsub Create Out Mch Accnt No Not Repeat" library="pylib.interface.cgt.MchsubCreateLib">
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20191217 16:17:10.832" level="INFO">{'biz_content': {'mch_accnt_no': 'T0020191217161710000053', 'out_mch_accnt_no': 'oman20191217161710'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'success', 'out_trans_no': 'otn20191217161710', 'sign_type': 'MD5', 'timestamp': '20191217041710'}</msg>
-<msg timestamp="20191217 16:17:10.832" level="INFO">${result} = {'biz_content': {'mch_accnt_no': 'T0020191217161710000053', 'out_mch_accnt_no': 'oman20191217161710'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'succes...</msg>
-<status status="PASS" starttime="20191217 16:17:10.348" endtime="20191217 16:17:10.832"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['code']=='0000'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:10.834" endtime="20191217 16:17:10.835"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['message']=='success'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:10.836" endtime="20191217 16:17:10.836"></status>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>&amp;{result}[biz_content]</arg>
-</arguments>
-<assign>
-<var>${biz_content}</var>
-</assign>
-<msg timestamp="20191217 16:17:10.837" level="INFO">${biz_content} = {'mch_accnt_no': 'T0020191217161710000053', 'out_mch_accnt_no': 'oman20191217161710'}</msg>
-<status status="PASS" starttime="20191217 16:17:10.836" endtime="20191217 16:17:10.837"></status>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>&amp;{biz_content}[mch_accnt_no]</arg>
-</arguments>
-<assign>
-<var>${mch_accnt_no}</var>
-</assign>
-<msg timestamp="20191217 16:17:10.837" level="INFO">${mch_accnt_no} = T0020191217161710000053</msg>
-<status status="PASS" starttime="20191217 16:17:10.837" endtime="20191217 16:17:10.837"></status>
-</kw>
-<kw name="Update Amount Sql" library="pylib.public.cgt.DBHelper">
-<arguments>
-<arg>${mch_accnt_no}</arg>
-</arguments>
-<assign>
-<var>${sql_amount}</var>
-</assign>
-<msg timestamp="20191217 16:17:10.900" level="INFO">UPDATE mch_accnt SET remain_amt = '1000', settled_amount = '1000' WHERE mch_no = 'MH20181229115220NBUu' And mch_accnt_no = 'T0020191217161710000053'
-数据库修改状态成功！</msg>
-<msg timestamp="20191217 16:17:10.900" level="INFO">${sql_amount} = 1</msg>
-<status status="PASS" starttime="20191217 16:17:10.837" endtime="20191217 16:17:10.900"></status>
-</kw>
-<kw name="Check Bank Name Bind Bankcard Private" library="pylib.interface.cgt.MchsubBindBankcardPrivateLib">
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20191217 16:17:10.922" level="INFO">{'biz_type': 'mchsub.bind.bankcard', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{开户行名称}', 'sign_type': 'MD5', 'timestamp': '20191217041711'}</msg>
-<msg timestamp="20191217 16:17:10.922" level="INFO">${result} = {'biz_type': 'mchsub.bind.bankcard', 'code': '101', 'mch_no': 'MH20181229115220NBUu', 'message': '必输参数不能为空:{开户行名称}', 'sign_type': 'MD5', 'timestamp': '20191217041711'}</msg>
-<status status="PASS" starttime="20191217 16:17:10.900" endtime="20191217 16:17:10.922"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['code']=='101'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:10.923" endtime="20191217 16:17:10.923"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['message']=='必输参数不能为空:{开户行名称}'</arg>
-</arguments>
-<status status="PASS" starttime="20191217 16:17:10.924" endtime="20191217 16:17:10.925"></status>
-</kw>
-<status status="PASS" starttime="20191217 16:17:09.343" endtime="20191217 16:17:10.926" critical="yes"></status>
-</test>
-<status status="PASS" starttime="20191217 16:17:03.556" endtime="20191217 16:17:10.927"></status>
+<status status="PASS" starttime="20191219 18:40:42.045" endtime="20191219 18:40:43.879"></status>
+</suite>
+<status status="PASS" starttime="20191219 18:40:42.044" endtime="20191219 18:40:43.881"></status>
+</suite>
+<status status="PASS" starttime="20191219 18:40:42.040" endtime="20191219 18:40:43.883"></status>
+</suite>
+<status status="PASS" starttime="20191219 18:40:42.023" endtime="20191219 18:40:43.884"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="6" fail="0">Critical Tests</stat>
-<stat pass="6" fail="0">All Tests</stat>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="6" fail="0" id="s1" name="绑定银行卡(对私)">绑定银行卡(对私)</stat>
+<stat pass="1" fail="0" id="s1" name="Cgttc">Cgttc</stat>
+<stat pass="1" fail="0" id="s1-s1" name="Data-空白数据">Cgttc.Data-空白数据</stat>
+<stat pass="1" fail="0" id="s1-s1-s1" name="绑定银行卡">Cgttc.Data-空白数据.绑定银行卡</stat>
+<stat pass="1" fail="0" id="s1-s1-s1-s1" name="绑定银行卡(对私)">Cgttc.Data-空白数据.绑定银行卡.绑定银行卡(对私)</stat>
 </suite>
 </statistics>
 <errors>

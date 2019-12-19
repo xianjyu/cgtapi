@@ -21,6 +21,9 @@ biz_type = ['mchsub.create', 'mchsub.edit', 'mchsub.bind.bankcard', 'mchsub.bind
 # 预发布环境对应的token
 token = '9b389216c3c55a7c535510b3ghlhhhhh'
 
+# 异步通知地址
+notify_url = 'http://172.16.202.163:3054/api/bankcard/notify.htm'
+
 # 测试环境数据库参数
 # localhost = '172.16.202.160'
 # username = 'yuxianjia'
