@@ -90,6 +90,44 @@ class DBHelper:
         self.connect.close()
         return result
 
+    def delete_mch_accnt_no(self, mch_accnt_no):
+        self.connect = pymysql.connect(localhost, username, password, database)
+        self.mfp_cursor = self.connect.cursor()
+        sql = 'DELETE FROM mch_accnt WHERE mch_accnt_no =' + "'" + mch_accnt_no + "'"
+        print(sql)
+        result = self.mfp_cursor.execute(sql)
+        if result == 1:
+            print("数据库修改状态成功！")
+        elif result == 0:
+            print("数据库修改状态失败！")
+        self.connect.commit()
+        self.mfp_cursor.close()
+        self.connect.close()
+        return result
+
+    def select_mch_accnt(self, mch_no, mch_accnt_no):
+        self.connect = pymysql.connect(localhost, username, password, database)
+        self.mfp_cursor = self.connect.cursor()
+        sql = 'SELECT * FROM mch_accnt WHERE mch_accnt_no =' + "'" + mch_accnt_no + "'" + ' AND mch_no = ' + "'" + mch_no + "'"
+        self.mfp_cursor.execute(sql)
+        result = self.mfp_cursor.fetchone()
+        result_list = list(result)
+        mch_no = result_list[1]
+        mch_accnt_no = result_list[4]
+        reamin_amt = result_list[8]
+        settled_amt =
+
+        self.connect.commit()
+        self.mfp_cursor.close()
+        self.connect.close()
+        return result
+
+    def select_his_accnt_onway(self, mch_no, mch_accnt_no):
+        pass
+
+    def select_his_accnt_profile(self, mch_no, mch_accnt_no):
+        pass
+
 
 if __name__ == '__main__':
     db = DBHelper()
@@ -97,7 +135,8 @@ if __name__ == '__main__':
     # db.update_status_sql('T0020191217142756000008')
     # db.update_amount_sql('T0020191217140921000005')
     # db.update_bank_sql('T0020191217152411000013')]
-    db.modify_fixed_poundage('1000', 'wx', 'MH20181229115220NBUu')
-
+    # db.modify_fixed_poundage('1000', 'wx', 'MH20181229115220NBUu')
+    # db.delete_mch_accnt_no('T0020191220154346000195')
+    db.select_mch_accnt('MH20181229115220NBUu', 'T0020191220171548000263')
 
 

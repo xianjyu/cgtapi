@@ -91,6 +91,11 @@ class ComLib:
         order_no = 'on' + timestamp
         return order_no
 
+    def get_trans_no(self):
+        timestamp = ComLib.get_time(self)
+        trans_no = 'tn' + timestamp
+        return trans_no
+
 
 if __name__ == '__main__':
     cl = ComLib()

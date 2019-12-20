@@ -89,7 +89,7 @@ Variables  config.py
         # 获取mch_accnt_no
         ${mch_accnt_no}=  set variable  &{biz_content}[mch_accnt_no]
         # 手动更新子商户账户剩余资金和已结算余额分别为1000
-        ${sql_amount}=  update amount sql  ${mch_accnt_no}
+        ${sql_amount}=  update amount sql  100000  100000  ${mch_accnt_no}
         # 对私：对子商户绑定银行卡${mch_accnt_no}
         ${result2}=  get response mchsub bind bankcard private  ${mch_accnt_no}  1  6217866300004303385  中国银行  中国银行支行
                                                                             ...  余道友  18158857961  http://172.16.202.160:3054/api/bankcard/notify.htm

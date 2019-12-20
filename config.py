@@ -15,7 +15,7 @@ mch_accnt_no = 'T0020191214172318000328'
 order_no = '201912142102'
 # 接口类型
 biz_type = ['mchsub.create', 'mchsub.edit', 'mchsub.bind.bankcard', 'mchsub.bind.nostro', 'mchaccnt.bind.notify',
-            'mchaccnt.withdraw']
+            'mchaccnt.withdraw', 'mchaccnt.pay.dispatch']
 # 测试环境对应的token
 # token = '9b389216c3c55a7c535510b33b9e6eb7'
 # 预发布环境对应的token
