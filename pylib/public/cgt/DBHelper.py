@@ -115,8 +115,7 @@ class DBHelper:
         mch_no = result_list[1]
         mch_accnt_no = result_list[4]
         reamin_amt = result_list[8]
-        settled_amt =
-
+        settled_amt = result_list[19]
         self.connect.commit()
         self.mfp_cursor.close()
         self.connect.close()
