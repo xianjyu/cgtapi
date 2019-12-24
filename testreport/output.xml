@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20191220 17:15:48.860" rpa="false">
+<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20191223 18:19:29.623" rpa="false">
 <suite id="s1" name="Cgttc" source="D:\workfile\Git\cgtapi\cgttc">
 <suite id="s1-s1" name="Data-空白数据" source="D:\workfile\Git\cgtapi\cgttc\data-空白数据">
 <suite id="s1-s1-s1" name="商户支付记账" source="D:\workfile\Git\cgtapi\cgttc\data-空白数据\商户支付记账">
@@ -9,119 +9,18 @@
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20191220 17:15:49.037" level="INFO">{'biz_content': {'mch_accnt_no': 'T0020191220171548000263', 'out_mch_accnt_no': 'oman20191220171549'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'success', 'out_trans_no': 'otn20191220171549', 'sign_type': 'MD5', 'timestamp': '20191220051548'}</msg>
-<msg timestamp="20191220 17:15:49.038" level="INFO">${result} = {'biz_content': {'mch_accnt_no': 'T0020191220171548000263', 'out_mch_accnt_no': 'oman20191220171549'}, 'biz_type': 'mchsub.create', 'code': '0000', 'mch_no': 'MH20181229115220NBUu', 'message': 'succes...</msg>
-<status status="PASS" starttime="20191220 17:15:49.004" endtime="20191220 17:15:49.038"></status>
+<msg timestamp="20191223 18:19:32.794" level="FAIL">ConnectionError: HTTPConnectionPool(host='172.16.202.160', port=3054): Max retries exceeded with url: /api/deposit.htm (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000016BDAF9C1F0&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))</msg>
+<status status="FAIL" starttime="20191223 18:19:30.665" endtime="20191223 18:19:32.794"></status>
 </kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['code']=='0000'</arg>
-</arguments>
-<status status="PASS" starttime="20191220 17:15:49.038" endtime="20191220 17:15:49.041"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['message']=='success'</arg>
-</arguments>
-<status status="PASS" starttime="20191220 17:15:49.041" endtime="20191220 17:15:49.042"></status>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>&amp;{result}[biz_content]</arg>
-</arguments>
-<assign>
-<var>${biz_content}</var>
-</assign>
-<msg timestamp="20191220 17:15:49.042" level="INFO">${biz_content} = {'mch_accnt_no': 'T0020191220171548000263', 'out_mch_accnt_no': 'oman20191220171549'}</msg>
-<status status="PASS" starttime="20191220 17:15:49.042" endtime="20191220 17:15:49.042"></status>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>&amp;{biz_content}[mch_accnt_no]</arg>
-</arguments>
-<assign>
-<var>${mch_accnt_no}</var>
-</assign>
-<msg timestamp="20191220 17:15:49.043" level="INFO">${mch_accnt_no} = T0020191220171548000263</msg>
-<status status="PASS" starttime="20191220 17:15:49.043" endtime="20191220 17:15:49.043"></status>
-</kw>
-<kw name="Update Amount Sql" library="pylib.public.cgt.DBHelper">
-<arguments>
-<arg>100000</arg>
-<arg>100000</arg>
-<arg>${mch_accnt_no}</arg>
-</arguments>
-<assign>
-<var>${sql_amount}</var>
-</assign>
-<msg timestamp="20191220 17:15:49.081" level="INFO">UPDATE mch_accnt SET remain_amt = '100000', settled_amount = '100000' WHERE mch_no = 'MH20181229115220NBUu' And mch_accnt_no = 'T0020191220171548000263'
-数据库修改状态成功！</msg>
-<msg timestamp="20191220 17:15:49.081" level="INFO">${sql_amount} = 1</msg>
-<status status="PASS" starttime="20191220 17:15:49.043" endtime="20191220 17:15:49.081"></status>
-</kw>
-<kw name="Use Trans Amt Mchaccnt Pay Dispatch" library="pylib.interface.cgt.MchaccntPayDispatchLib">
-<doc>获取商户支付记账的返回报文方法:get_response_mchaccnt_pay_dispatch()
-:param trans_no:交易流水号(支付通道返回的交易订单号，标识唯一的一笔支付交易，同一商户下唯一)
-:param trans_channel:交易渠道(交易渠道标识，如微信扫码、公众号（1001/1002），该标识由商户定义，测试环境与正式环境都需要提前告知系统配置)
-:param trans_time:交易完成时间
-:param trans_amt:交易金额
-:param settle_duration:结算周期(结算周期：T1（T+1）、D0(D+0)、D1(D+1)、T7(T+7))
-:param settle_type:结算方式：0（其他通道转账）；1（通道结算）
-:param mch_accnt_no:子商户账户号
-:param order_no:订单号(由商户生成，标识在一笔支付交易完成后，每笔要进行清分的明细)
-:param dispatch_event:分账事件：pay(支付)；transfer( 转账 )
-:param dispatch_type:分账类型(1：正交易；2：反交易)
-:param business_type:业务类型（网吧、医药、保险..）
-:param amount:分账金额  分
-:param accnt_amount_before: 账户事前余额(商户系统中，对应该账户的余额)
-:return:商户支付记账的返回报文参数给外部调用者</doc>
-<arguments>
-<arg>${mch_accnt_no}</arg>
-<arg>D+1</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20191220 17:15:49.124" level="INFO">{'biz_content': {'split_accnt_detail': [{'amount': 1000,
-                                         'amount_after_event': 101000,
-                                         'code': '0000',
-                                         'dispatch_event': 'pay',
-                                         'dispatch_type': '1',
-                                         'mch_accnt_no': 'T0020191220171548000263',
-                                         'order_no': 'on20191220171549',
-                                         'status': '1'}],
-                 'trans_no': 'tn20191220171549'},
- 'biz_type': 'mchaccnt.pay.dispatch',
- 'code': '0000',
- 'mch_no': 'MH20181229115220NBUu',
- 'message': 'success',
- 'out_trans_no': 'otn20191220171549',
- 'sign_type': 'MD5',
- 'timestamp': '20191220051548'}</msg>
-<msg timestamp="20191220 17:15:49.124" level="INFO">${result} = {'biz_content': {'trans_no': 'tn20191220171549', 'split_accnt_detail': [{'amount': 1000, 'amount_after_event': 101000, 'code': '0000', 'dispatch_event': 'pay', 'dispatch_type': '1', 'mch_accnt_no': 'T...</msg>
-<status status="PASS" starttime="20191220 17:15:49.082" endtime="20191220 17:15:49.124"></status>
-</kw>
-<kw name="Should Be True" library="BuiltIn">
-<doc>Fails if the given condition is not true.</doc>
-<arguments>
-<arg>$result['code']=='210'</arg>
-</arguments>
-<msg timestamp="20191220 17:15:49.126" level="FAIL">'$result['code']=='210'' should be true.</msg>
-<status status="FAIL" starttime="20191220 17:15:49.125" endtime="20191220 17:15:49.126"></status>
-</kw>
-<status status="FAIL" starttime="20191220 17:15:49.003" endtime="20191220 17:15:49.126" critical="yes">'$result['code']=='210'' should be true.</status>
+<status status="FAIL" starttime="20191223 18:19:30.663" endtime="20191223 18:19:32.795" critical="yes">ConnectionError: HTTPConnectionPool(host='172.16.202.160', port=3054): Max retries exceeded with url: /api/deposit.htm (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000016BDAF9C1F0&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))</status>
 </test>
-<status status="FAIL" starttime="20191220 17:15:48.882" endtime="20191220 17:15:49.129"></status>
+<status status="FAIL" starttime="20191223 18:19:29.704" endtime="20191223 18:19:32.796"></status>
 </suite>
-<status status="FAIL" starttime="20191220 17:15:48.880" endtime="20191220 17:15:49.132"></status>
+<status status="FAIL" starttime="20191223 18:19:29.702" endtime="20191223 18:19:32.798"></status>
 </suite>
-<status status="FAIL" starttime="20191220 17:15:48.879" endtime="20191220 17:15:49.133"></status>
+<status status="FAIL" starttime="20191223 18:19:29.699" endtime="20191223 18:19:32.799"></status>
 </suite>
-<status status="FAIL" starttime="20191220 17:15:48.861" endtime="20191220 17:15:49.134"></status>
+<status status="FAIL" starttime="20191223 18:19:29.624" endtime="20191223 18:19:32.801"></status>
 </suite>
 <statistics>
 <total>

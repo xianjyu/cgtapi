@@ -335,6 +335,8 @@ Variables  config.py
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
         should be true  $result['message']=='success'
+        # 获取mch_no
+        ${mch_no}=  set variable  &{result}[mch_no]
         # 把获取到的biz_content交给变量
         ${biz_content}=  set variable  &{result}[biz_content]
         # 获取mch_accnt_no
@@ -344,8 +346,8 @@ Variables  config.py
         ${result}=  use_trans_amt_mchaccnt_pay_dispatch  ${mch_accnt_no}  D+1
         should be true  $result['code']=='0000'
         should be true  $result['message']=='success'
-
-
+        # 存管户账户剩余资金和已结算余额
+        select_mch_accnt  ${mch_no}  ${mch_accnt_no}
 
 结算周期为D+1 -tc00373
         # 正常创建子商户

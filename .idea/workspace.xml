@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea91b78b-be5e-42d0-84a3-d32ae62bc279" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cgttc/data-空白数据/商户支付记账/商户支付记账.robot" beforeDir="false" afterPath="$PROJECT_DIR$/cgttc/data-空白数据/商户支付记账/商户支付记账.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cgttc/data-空白数据/绑定银行卡/绑定银行卡(对公).robot" beforeDir="false" afterPath="$PROJECT_DIR$/cgttc/data-空白数据/绑定银行卡/绑定银行卡(对公).robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pylib/public/cgt/DBHelper.py" beforeDir="false" afterPath="$PROJECT_DIR$/pylib/public/cgt/DBHelper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testreport/log.html" beforeDir="false" afterPath="$PROJECT_DIR$/testreport/log.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testreport/output.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testreport/output.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testreport/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/testreport/report.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +23,7 @@
     <SUITE FILE_PATH="coverage/cgtapi$MchaccntWithdrawLib.coverage" NAME="MchaccntWithdrawLib Coverage Results" MODIFIED="1576580563671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pylib/interface/cgt" />
     <SUITE FILE_PATH="coverage/cgtapi$MchsubCreateLib.coverage" NAME="MchsubCreateLib Coverage Results" MODIFIED="1576315381420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pylib/interface/cgt" />
     <SUITE FILE_PATH="coverage/cgtapi$ComLib__1_.coverage" NAME="ComLib (1) Coverage Results" MODIFIED="1576230101586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pylib/public/gbw" />
-    <SUITE FILE_PATH="coverage/cgtapi$DBHelper.coverage" NAME="DBHelper Coverage Results" MODIFIED="1576834594820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pylib/public/cgt" />
+    <SUITE FILE_PATH="coverage/cgtapi$DBHelper.coverage" NAME="DBHelper Coverage Results" MODIFIED="1577071682277" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pylib/public/cgt" />
     <SUITE FILE_PATH="coverage/cgtapi$MchsubBindBbankcardLib.coverage" NAME="MchsubBindBbankcardLib Coverage Results" MODIFIED="1576301878678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pylib/interface/cgt" />
     <SUITE FILE_PATH="coverage/cgtapi$MchsubBindBankcardPrivateLib.coverage" NAME="MchsubBindBankcardPrivateLib Coverage Results" MODIFIED="1576749630447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pylib/interface/cgt" />
     <SUITE FILE_PATH="coverage/cgtapi$MchsubCreatLib.coverage" NAME="MchsubCreatLib Coverage Results" MODIFIED="1576203247367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pylib/interface" />
@@ -34,60 +41,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cgttc/data-空白数据/商户支付记账/商户支付记账.robot">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="346" selection-start-line="346" selection-end-line="346" />
-              <folding>
-                <element signature="e#297#1058#0" />
-                <element signature="e#1059#1818#0" />
-                <element signature="e#1830#2588#0" />
-                <element signature="e#2590#3348#0" />
-                <element signature="e#3357#4118#0" />
-                <element signature="e#4120#4873#0" />
-                <element signature="e#4875#5068#0" />
-                <element signature="e#5070#5836#0" />
-                <element signature="e#5836#6602#0" />
-                <element signature="e#6604#7369#0" />
-                <element signature="e#7371#8119#0" />
-                <element signature="e#8130#8891#0" />
-                <element signature="e#8882#9644#0" />
-                <element signature="e#9638#10670#0" />
-                <element signature="e#10620#11318#0" />
-                <element signature="e#11359#12054#0" />
-                <element signature="e#12057#12751#0" />
-                <element signature="e#12753#13452#0" />
-                <element signature="e#13452#14147#0" />
-                <element signature="e#14159#14859#0" />
-                <element signature="e#14880#15579#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pylib/interface/cgt/MchaccntPayDispatchLib.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
+            <state>
               <caret line="899" column="36" selection-start-line="899" selection-start-column="34" selection-end-line="899" selection-end-column="36" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#2557#4480#0" />
-                <element signature="e#4561#6484#0" />
-                <element signature="e#6561#8487#0" />
-                <element signature="e#8570#10531#0" />
-                <element signature="e#10610#12540#0" />
-                <element signature="e#12606#14527#0" />
-                <element signature="e#14605#16526#0" />
-                <element signature="e#16602#18527#0" />
-                <element signature="e#18607#20532#0" />
-                <element signature="e#20621#22547#0" />
-                <element signature="e#22631#24561#0" />
-                <element signature="e#18601#20531#0" />
-                <element signature="e#26640#28572#0" />
-                <element signature="e#28695#30633#0" />
-                <element signature="e#30713#32651#0" />
-                <element signature="e#32766#34708#0" />
               </folding>
             </state>
           </provider>
@@ -96,8 +55,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pylib/public/cgt/DBHelper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="119" column="31" lean-forward="true" selection-start-line="119" selection-start-column="31" selection-end-line="119" selection-end-column="31" />
+            <state relative-caret-position="240">
+              <caret line="125" column="12" lean-forward="true" selection-start-line="125" selection-start-column="12" selection-end-line="125" selection-end-column="12" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
                 <element signature="e#754#961#0" />
@@ -106,9 +65,143 @@
                 <element signature="e#2086#2591#0" />
                 <element signature="e#2664#3415#0" />
                 <element signature="e#3474#3971#0" />
-                <element signature="e#4109#4113#0" />
-                <element signature="e#4185#4189#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cgttc/data-空白数据/商户支付记账/商户支付记账.robot">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="57" selection-start-line="57" selection-end-line="57" />
+              <folding>
+                <element signature="e#0#276#0" expanded="true" />
+                <element signature="e#297#1057#0" />
+                <element signature="e#1059#1828#0" />
+                <element signature="e#1830#2591#0" />
+                <element signature="e#2593#3354#0" />
+                <element signature="e#3356#4121#0" />
+                <element signature="e#4123#4876#0" />
+                <element signature="e#4878#5071#0" />
+                <element signature="e#5073#5837#0" />
+                <element signature="e#5839#6605#0" />
+                <element signature="e#6607#7372#0" />
+                <element signature="e#7374#8128#0" />
+                <element signature="e#8130#8880#0" />
+                <element signature="e#8882#9636#0" />
+                <element signature="e#9638#10618#0" />
+                <element signature="e#10620#11357#0" />
+                <element signature="e#11359#12055#0" />
+                <element signature="e#12057#12756#0" />
+                <element signature="e#12758#13464#0" />
+                <element signature="e#13466#14170#0" />
+                <element signature="e#14172#14877#0" />
+                <element signature="e#14879#15578#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cgttc/data-空白数据/绑定银行卡/绑定银行卡(对公).robot">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="77" column="64" selection-start-line="77" selection-start-column="64" selection-end-line="77" selection-end-column="64" />
+              <folding>
+                <element signature="e#0#133#0" expanded="true" />
+                <element signature="e#154#356#0" />
+                <element signature="e#358#576#0" />
+                <element signature="e#578#772#0" />
+                <element signature="e#774#975#0" />
+                <element signature="e#977#1170#0" />
+                <element signature="e#1172#1370#0" />
+                <element signature="e#1372#2096#0" />
+                <element signature="e#2098#2310#0" />
+                <element signature="e#2312#2518#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pylib/interface/cgt/MchsubBindBankcardLib.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#21890#22487#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cgttc/data-空白数据/账户提现/账户提现.robot">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="91" column="59" selection-start-line="91" selection-start-column="59" selection-end-line="91" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#224#0" expanded="true" />
+                <element signature="e#266#470#0" />
+                <element signature="e#472#668#0" />
+                <element signature="e#670#868#0" />
+                <element signature="e#870#1070#0" />
+                <element signature="e#1072#1270#0" />
+                <element signature="e#1272#1482#0" />
+                <element signature="e#1484#3271#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pylib/interface/cgt/MchaccntWithdrawLib.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8">
+              <caret line="528" column="26" selection-start-line="528" selection-start-column="26" selection-end-line="528" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#203#207#0" />
+                <element signature="e#1668#2907#0" />
+                <element signature="e#2972#4217#0" />
+                <element signature="e#4278#5542#0" />
+                <element signature="e#5602#6854#0" />
+                <element signature="e#6916#8183#0" />
+                <element signature="e#8243#9506#0" />
+                <element signature="e#9572#10832#0" />
+                <element signature="e#10894#12150#0" />
+                <element signature="e#12240#13495#0" />
+                <element signature="e#13589#14833#0" />
+                <element signature="e#14923#16183#0" />
+                <element signature="e#16270#17523#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cgttc/data-空白数据/绑定银行卡/绑定银行卡(对私).robot">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="253" column="68" selection-start-line="247" selection-start-column="8" selection-end-line="253" selection-end-column="68" />
+              <folding>
+                <element signature="e#5707#5960#0" />
+                <element signature="e#6213#6458#0" />
+                <element signature="e#6460#6707#0" />
+                <element signature="e#8578#9995#0" />
+                <element signature="e#9997#11428#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -169,7 +262,6 @@
         <option value="$PROJECT_DIR$/cgttc/data-空白数据/子商户/__init__.robot" />
         <option value="$PROJECT_DIR$/cgttc/data-空白数据/子商户/子商户创建.robot" />
         <option value="$PROJECT_DIR$/cgttc/data-空白数据/子商户/子商户修改.robot" />
-        <option value="$PROJECT_DIR$/cgttc/data-空白数据/绑定银行卡/绑定银行卡(对公).robot" />
         <option value="$PROJECT_DIR$/pylib/interface/cgt/MchsubBindnNstro.py" />
         <option value="$PROJECT_DIR$/pylib/interface/cgt/MchaccntBindNotify.py" />
         <option value="$PROJECT_DIR$/pylib/interface/cgt/MchsubBindNstro.py" />
@@ -182,10 +274,11 @@
         <option value="$PROJECT_DIR$/cgttc/data-空白数据/绑定银行卡/绑定银行卡(对私).robot" />
         <option value="$PROJECT_DIR$/pylib/interface/cgt/MchsubBindBankcardPrivateLib.py" />
         <option value="$PROJECT_DIR$/pylib/public/cgt/ComLib.py" />
-        <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/cgttc/data-空白数据/账户提现/账户提现.robot" />
         <option value="$PROJECT_DIR$/pylib/interface/cgt/MchaccntPayDispatchLib.py" />
         <option value="$PROJECT_DIR$/cgttc/data-空白数据/商户支付记账/商户支付记账.robot" />
+        <option value="$PROJECT_DIR$/config.py" />
+        <option value="$PROJECT_DIR$/cgttc/data-空白数据/绑定银行卡/绑定银行卡(对公).robot" />
         <option value="$PROJECT_DIR$/pylib/public/cgt/DBHelper.py" />
       </list>
     </option>
@@ -209,62 +302,6 @@
               <item name="cgtapi" type="b2602c69:ProjectViewProjectNode" />
               <item name="cgtapi" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="cgtapi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cgtapi" type="462c0819:PsiDirectoryNode" />
-              <item name="cgttc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cgtapi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cgtapi" type="462c0819:PsiDirectoryNode" />
-              <item name="cgttc" type="462c0819:PsiDirectoryNode" />
-              <item name="data-空白数据" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cgtapi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cgtapi" type="462c0819:PsiDirectoryNode" />
-              <item name="cgttc" type="462c0819:PsiDirectoryNode" />
-              <item name="data-空白数据" type="462c0819:PsiDirectoryNode" />
-              <item name="商户支付记账" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cgtapi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cgtapi" type="462c0819:PsiDirectoryNode" />
-              <item name="cgttc" type="462c0819:PsiDirectoryNode" />
-              <item name="data-空白数据" type="462c0819:PsiDirectoryNode" />
-              <item name="账户提现" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cgtapi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cgtapi" type="462c0819:PsiDirectoryNode" />
-              <item name="pylib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cgtapi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cgtapi" type="462c0819:PsiDirectoryNode" />
-              <item name="pylib" type="462c0819:PsiDirectoryNode" />
-              <item name="interface" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cgtapi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cgtapi" type="462c0819:PsiDirectoryNode" />
-              <item name="pylib" type="462c0819:PsiDirectoryNode" />
-              <item name="interface" type="462c0819:PsiDirectoryNode" />
-              <item name="cgt" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cgtapi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cgtapi" type="462c0819:PsiDirectoryNode" />
-              <item name="pylib" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cgtapi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cgtapi" type="462c0819:PsiDirectoryNode" />
-              <item name="pylib" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="cgt" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -276,20 +313,20 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\workfile\Git\cgtapi\cgttc\data-空白数据\往账请求" />
-      <recent name="D:\workfile\Git\cgtapi\gwbtc" />
-      <recent name="D:\workfile\Git\cgtapi\pylib\public\gbw" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\workfile\Git\cgtapi\cgttc\data-空白数据" />
       <recent name="D:\workfile\Git\cgtapi\pylib\interface\cgt" />
       <recent name="D:\workfile\Git\cgtapi\pylib\public\cgt" />
       <recent name="D:\workfile\Git\cgtapi\RF" />
       <recent name="D:\workfile\Git\cgtapi" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workfile\Git\cgtapi\cgttc\data-空白数据\往账请求" />
+      <recent name="D:\workfile\Git\cgtapi\gwbtc" />
+      <recent name="D:\workfile\Git\cgtapi\pylib\public\gbw" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -445,18 +482,23 @@
       <workItem from="1576651417603" duration="13648000" />
       <workItem from="1576669664481" duration="1952000" />
       <workItem from="1576720782014" duration="9868000" />
-      <workItem from="1576803677244" duration="13438000" />
+      <workItem from="1576803677244" duration="13505000" />
+      <workItem from="1577071403725" duration="6024000" />
+      <workItem from="1577149046654" duration="2955000" />
+      <workItem from="1577175571070" duration="1592000" />
+      <workItem from="1577178764960" duration="344000" />
+      <workItem from="1577179141758" duration="731000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165000000" />
+    <option name="totallyTimeSpent" value="176713000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49896482" visible="true" weight="0.2077748" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49896482" visible="true" weight="0.13069706" />
       <window_info id="Favorites" order="1" sideWeight="0.5010352" side_tool="true" weight="0.17292225" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.37677053" />
@@ -469,9 +511,9 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Inspection Results" order="9" weight="0.3286119" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3286119" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49798927" visible="true" weight="0.28611898" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5020107" side_tool="true" weight="0.24645892" />
-      <window_info anchor="bottom" id="Python Console" order="13" weight="0.49291784" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49731904" visible="true" weight="0.2720588" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50268096" side_tool="true" weight="0.2082153" />
+      <window_info anchor="bottom" id="Python Console" order="13" weight="0.4132353" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -675,76 +717,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pylib/interface/cgt/MchaccntWithdrawLib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3268">
-          <caret line="640" column="31" selection-start-line="640" selection-start-column="31" selection-end-line="640" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#203#207#0" />
-            <element signature="e#341#1543#0" />
-            <element signature="e#1668#2907#0" />
-            <element signature="e#2972#4217#0" />
-            <element signature="e#4278#5542#0" />
-            <element signature="e#5602#6854#0" />
-            <element signature="e#6916#8183#0" />
-            <element signature="e#8243#9506#0" />
-            <element signature="e#9572#10832#0" />
-            <element signature="e#10894#12150#0" />
-            <element signature="e#12240#13495#0" />
-            <element signature="e#13589#14833#0" />
-            <element signature="e#14923#16183#0" />
-            <element signature="e#16270#17523#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cgttc/data-空白数据/往账请求/往账请求.robot">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
           <folding>
             <element signature="e#0#195#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cgttc/data-空白数据/绑定银行卡/绑定银行卡(对公).robot">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="252" selection-start-line="252" selection-end-line="252" />
-          <folding>
-            <element signature="e#0#133#0" expanded="true" />
-            <element signature="e#154#356#0" />
-            <element signature="e#358#576#0" />
-            <element signature="e#578#772#0" />
-            <element signature="e#774#975#0" />
-            <element signature="e#977#1170#0" />
-            <element signature="e#1172#1370#0" />
-            <element signature="e#1372#2096#0" />
-            <element signature="e#2098#2310#0" />
-            <element signature="e#2312#2518#0" />
-            <element signature="e#2520#3078#0" />
-            <element signature="e#3080#3274#0" />
-            <element signature="e#3276#3535#0" />
-            <element signature="e#3537#4605#0" />
-            <element signature="e#4607#4857#0" />
-            <element signature="e#4859#5110#0" />
-            <element signature="e#5112#5367#0" />
-            <element signature="e#5369#5936#0" />
-            <element signature="e#5938#6508#0" />
-            <element signature="e#6510#7104#0" />
-            <element signature="e#7106#7694#0" />
-            <element signature="e#7696#8282#0" />
-            <element signature="e#8284#8871#0" />
-            <element signature="e#8873#9465#0" />
-            <element signature="e#9467#10042#0" />
-            <element signature="e#10044#10621#0" />
-            <element signature="e#10623#11201#0" />
-            <element signature="e#11203#11800#0" />
-            <element signature="e#11802#12389#0" />
-            <element signature="e#12391#12978#0" />
-            <element signature="e#12980#13558#0" />
           </folding>
         </state>
       </provider>
@@ -778,90 +756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cgttc/data-空白数据/绑定银行卡/绑定银行卡(对私).robot">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="268" column="43" lean-forward="true" selection-start-line="268" selection-start-column="43" selection-end-line="268" selection-end-column="43" />
-          <folding>
-            <element signature="e#175#916#0" />
-            <element signature="e#918#1665#0" />
-            <element signature="e#1667#2440#0" />
-            <element signature="e#2442#3187#0" />
-            <element signature="e#3189#3941#0" />
-            <element signature="e#3943#5412#0" />
-            <element signature="e#4707#5462#0" />
-            <element signature="e#5707#5960#0" />
-            <element signature="e#5962#6213#0" />
-            <element signature="e#6213#6458#0" />
-            <element signature="e#6460#6707#0" />
-            <element signature="e#6709#6957#0" />
-            <element signature="e#6957#7159#0" />
-            <element signature="e#7160#7364#0" />
-            <element signature="e#8578#9995#0" />
-            <element signature="e#9997#11428#0" />
-            <element signature="e#4718#6098#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pylib/interface/cgt/MchsubBindBankcardLib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cgttc/data-空白数据/账户提现/账户提现.robot">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="91" column="59" selection-start-line="91" selection-start-column="59" selection-end-line="91" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#224#0" expanded="true" />
-            <element signature="e#266#470#0" />
-            <element signature="e#472#668#0" />
-            <element signature="e#670#868#0" />
-            <element signature="e#870#1070#0" />
-            <element signature="e#1072#1270#0" />
-            <element signature="e#1272#1482#0" />
-            <element signature="e#1484#3271#0" />
-            <element signature="e#5103#5326#0" />
-            <element signature="e#5328#5572#0" />
-            <element signature="e#5574#7236#0" />
-            <element signature="e#7238#7972#0" />
-            <element signature="e#7974#9614#0" />
-            <element signature="e#9616#11255#0" />
-            <element signature="e#11257#12906#0" />
-            <element signature="e#12908#13138#0" />
-            <element signature="e#13140#13398#0" />
-            <element signature="e#13400#13801#0" />
-            <element signature="e#13803#15611#0" />
-            <element signature="e#15613#17434#0" />
-            <element signature="e#17436#19253#0" />
-            <element signature="e#19255#21076#0" />
-            <element signature="e#21078#22926#0" />
-            <element signature="e#22928#24618#0" />
-            <element signature="e#24620#26267#0" />
-            <element signature="e#26269#27913#0" />
-            <element signature="e#27915#29577#0" />
-            <element signature="e#29579#31239#0" />
-            <element signature="e#31241#32903#0" />
-            <element signature="e#32905#34709#0" />
-            <element signature="e#34711#36917#0" />
-            <element signature="e#36919#39069#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pylib/public/cgt/ComLib.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -881,64 +775,140 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pylib/interface/cgt/MchaccntPayDispatchLib.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
+        <state>
           <caret line="899" column="36" selection-start-line="899" selection-start-column="34" selection-end-line="899" selection-end-column="36" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#2557#4480#0" />
-            <element signature="e#4561#6484#0" />
-            <element signature="e#6561#8487#0" />
-            <element signature="e#8570#10531#0" />
-            <element signature="e#10610#12540#0" />
-            <element signature="e#12606#14527#0" />
-            <element signature="e#14605#16526#0" />
-            <element signature="e#16602#18527#0" />
-            <element signature="e#18607#20532#0" />
-            <element signature="e#20621#22547#0" />
-            <element signature="e#22631#24561#0" />
-            <element signature="e#18601#20531#0" />
-            <element signature="e#26640#28572#0" />
-            <element signature="e#28695#30633#0" />
-            <element signature="e#30713#32651#0" />
-            <element signature="e#32766#34708#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cgttc/data-空白数据/商户支付记账/商户支付记账.robot">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="346" selection-start-line="346" selection-end-line="346" />
+        <state>
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
           <folding>
-            <element signature="e#297#1058#0" />
-            <element signature="e#1059#1818#0" />
-            <element signature="e#1830#2588#0" />
-            <element signature="e#2590#3348#0" />
-            <element signature="e#3357#4118#0" />
-            <element signature="e#4120#4873#0" />
-            <element signature="e#4875#5068#0" />
-            <element signature="e#5070#5836#0" />
-            <element signature="e#5836#6602#0" />
-            <element signature="e#6604#7369#0" />
-            <element signature="e#7371#8119#0" />
-            <element signature="e#8130#8891#0" />
-            <element signature="e#8882#9644#0" />
-            <element signature="e#9638#10670#0" />
-            <element signature="e#10620#11318#0" />
-            <element signature="e#11359#12054#0" />
-            <element signature="e#12057#12751#0" />
-            <element signature="e#12753#13452#0" />
-            <element signature="e#13452#14147#0" />
-            <element signature="e#14159#14859#0" />
-            <element signature="e#14880#15579#0" />
+            <element signature="e#0#276#0" expanded="true" />
+            <element signature="e#297#1057#0" />
+            <element signature="e#1059#1828#0" />
+            <element signature="e#1830#2591#0" />
+            <element signature="e#2593#3354#0" />
+            <element signature="e#3356#4121#0" />
+            <element signature="e#4123#4876#0" />
+            <element signature="e#4878#5071#0" />
+            <element signature="e#5073#5837#0" />
+            <element signature="e#5839#6605#0" />
+            <element signature="e#6607#7372#0" />
+            <element signature="e#7374#8128#0" />
+            <element signature="e#8130#8880#0" />
+            <element signature="e#8882#9636#0" />
+            <element signature="e#9638#10618#0" />
+            <element signature="e#10620#11357#0" />
+            <element signature="e#11359#12055#0" />
+            <element signature="e#12057#12756#0" />
+            <element signature="e#12758#13464#0" />
+            <element signature="e#13466#14170#0" />
+            <element signature="e#14172#14877#0" />
+            <element signature="e#14879#15578#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cgttc/data-空白数据/绑定银行卡/绑定银行卡(对公).robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="77" column="64" selection-start-line="77" selection-start-column="64" selection-end-line="77" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#133#0" expanded="true" />
+            <element signature="e#154#356#0" />
+            <element signature="e#358#576#0" />
+            <element signature="e#578#772#0" />
+            <element signature="e#774#975#0" />
+            <element signature="e#977#1170#0" />
+            <element signature="e#1172#1370#0" />
+            <element signature="e#1372#2096#0" />
+            <element signature="e#2098#2310#0" />
+            <element signature="e#2312#2518#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pylib/interface/cgt/MchsubBindBankcardLib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#21890#22487#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cgttc/data-空白数据/账户提现/账户提现.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="91" column="59" selection-start-line="91" selection-start-column="59" selection-end-line="91" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#224#0" expanded="true" />
+            <element signature="e#266#470#0" />
+            <element signature="e#472#668#0" />
+            <element signature="e#670#868#0" />
+            <element signature="e#870#1070#0" />
+            <element signature="e#1072#1270#0" />
+            <element signature="e#1272#1482#0" />
+            <element signature="e#1484#3271#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cgttc/data-空白数据/绑定银行卡/绑定银行卡(对私).robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="253" column="68" selection-start-line="247" selection-start-column="8" selection-end-line="253" selection-end-column="68" />
+          <folding>
+            <element signature="e#5707#5960#0" />
+            <element signature="e#6213#6458#0" />
+            <element signature="e#6460#6707#0" />
+            <element signature="e#8578#9995#0" />
+            <element signature="e#9997#11428#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pylib/interface/cgt/MchaccntWithdrawLib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="528" column="26" selection-start-line="528" selection-start-column="26" selection-end-line="528" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#203#207#0" />
+            <element signature="e#1668#2907#0" />
+            <element signature="e#2972#4217#0" />
+            <element signature="e#4278#5542#0" />
+            <element signature="e#5602#6854#0" />
+            <element signature="e#6916#8183#0" />
+            <element signature="e#8243#9506#0" />
+            <element signature="e#9572#10832#0" />
+            <element signature="e#10894#12150#0" />
+            <element signature="e#12240#13495#0" />
+            <element signature="e#13589#14833#0" />
+            <element signature="e#14923#16183#0" />
+            <element signature="e#16270#17523#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pylib/public/cgt/DBHelper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="119" column="31" lean-forward="true" selection-start-line="119" selection-start-column="31" selection-end-line="119" selection-end-column="31" />
+        <state relative-caret-position="240">
+          <caret line="125" column="12" lean-forward="true" selection-start-line="125" selection-start-column="12" selection-end-line="125" selection-end-column="12" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
             <element signature="e#754#961#0" />
@@ -947,8 +917,6 @@
             <element signature="e#2086#2591#0" />
             <element signature="e#2664#3415#0" />
             <element signature="e#3474#3971#0" />
-            <element signature="e#4109#4113#0" />
-            <element signature="e#4185#4189#0" />
           </folding>
         </state>
       </provider>

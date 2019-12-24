@@ -112,14 +112,15 @@ class DBHelper:
         self.mfp_cursor.execute(sql)
         result = self.mfp_cursor.fetchone()
         result_list = list(result)
-        mch_no = result_list[1]
-        mch_accnt_no = result_list[4]
-        reamin_amt = result_list[8]
-        settled_amt = result_list[19]
+        # mch_no = result_list[1]
+        # mch_accnt_no = result_list[4]
+        remain_amt = result_list[8]
+        settled_amt = result_list[18]
         self.connect.commit()
         self.mfp_cursor.close()
         self.connect.close()
-        return result
+        print(remain_amt, settled_amt)
+        return remain_amt, settled_amt
 
     def select_his_accnt_onway(self, mch_no, mch_accnt_no):
         pass

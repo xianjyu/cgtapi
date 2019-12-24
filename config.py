@@ -1,6 +1,6 @@
 # 存管通测试环境URL
-# test_env_url = 'http://172.16.202.160:3054/api/deposit.htm'
-cgt_test_env_url = 'http://172.16.202.163:3054/api/deposit.htm'
+cgt_test_env_url = 'http://172.16.202.160:3054/api/deposit.htm'
+# cgt_test_env_url = 'http://172.16.202.163:3054/api/deposit.htm'
 # 存管通预发布环境URL
 # cgt_pre_env_url = 'http://172.16.202.163:3054/api/deposit.htm'
 # 工保网测试环境URL
@@ -25,16 +25,16 @@ token = '9b389216c3c55a7c535510b3ghlhhhhh'
 notify_url = 'http://172.16.202.163:3054/api/bankcard/notify.htm'
 
 # 测试环境数据库参数
-# localhost = '172.16.202.160'
-# username = 'yuxianjia'
-# password = 'yuxianjia'
-# database = 'deposit'
-
-# 测试环境数据库参数
-localhost = '172.16.202.162'
+localhost = '172.16.202.160'
 username = 'yuxianjia'
 password = 'yuxianjia'
 database = 'deposit'
+
+# 测试环境数据库参数
+# localhost = '172.16.202.162'
+# username = 'yuxianjia'
+# password = 'yuxianjia'
+# database = 'deposit'
 
 
 gbw_biz_type = ['mchaccnt.submit.order', 'mchaccnt.change.notify', 'mchaccnt.match',

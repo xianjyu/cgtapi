@@ -70,7 +70,7 @@ Variables  config.py
         should be true  $result['message']=='必输参数不能为空:{异步通知地址}'
 
 正常绑定银行卡(对公) -tc00060
-        # 10.分为两步，第一步先创建子商户，第二步创建成功后的报文中mch_accnt_no取出来’
+        # 10.分为两步，第一步先创建子商户，第二步创建成功后的报文中mch_accnt_no取出来
         sleep  1s
         ${addResult}=  mchsub create out mch accnt no not repeat
         should be true  $addResult['code']=='0000'
