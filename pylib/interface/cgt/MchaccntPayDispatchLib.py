@@ -1,7 +1,7 @@
 import json
 import requests
 from pprint import pprint
-from config import token, cgt_test_env_url
+from config import token, cgt_test_env_url, trans_channel
 from pylib.public.cgt.ComLib import ComLib
 
 
@@ -12,7 +12,7 @@ class MchaccntPayDispatchLib:
     def __init__(self):
         pass
 
-    def get_response_mchaccnt_pay_dispatch(self, trans_channel, trans_amt, settle_duration, settle_type, mch_accnt_no,
+    def get_response_mchaccnt_pay_dispatch(self, trans_amt, settle_duration, settle_type, mch_accnt_no,
                                            dispatch_event, dispatch_type, business_type, amount, accnt_amount_before):
         """
         获取商户支付记账的返回报文方法:get_response_mchaccnt_pay_dispatch()
@@ -20,13 +20,13 @@ class MchaccntPayDispatchLib:
         :param trans_channel:交易渠道(交易渠道标识，如微信扫码、公众号（1001/1002），该标识由商户定义，测试环境与正式环境都需要提前告知系统配置)
         :param trans_time:交易完成时间
         :param trans_amt:交易金额
-        :param settle_duration:结算周期(结算周期：T1（T+1）、D0(D+0)、D1(D+1)、T7(T+7))
+        :param settle_duration:结算周期(结算周期：T1（T+1）、D0(D+0)、D1(D+1)、T7(T+7))  非必填
         :param settle_type:结算方式：0（其他通道转账）；1（通道结算）
         :param mch_accnt_no:子商户账户号
         :param order_no:订单号(由商户生成，标识在一笔支付交易完成后，每笔要进行清分的明细)
         :param dispatch_event:分账事件：pay(支付)；transfer( 转账 )
         :param dispatch_type:分账类型(1：正交易；2：反交易)
-        :param business_type:业务类型（网吧、医药、保险..）
+        :param business_type:业务类型（网吧、医药、保险..）   非必填
         :param amount:分账金额  分
         :param accnt_amount_before: 账户事前余额(商户系统中，对应该账户的余额)  非必填参数
         :return:商户支付记账的返回报文参数给外部调用者
@@ -86,7 +86,7 @@ class MchaccntPayDispatchLib:
         order_no = cl.get_order_no()
         biz_content = {
             'trans_no': '',
-            'trans_channel': '2051',
+            'trans_channel': trans_channel,
             'trans_time': trans_time,
             'trans_amt': 100,
             'settle_duration': 'D+1',
@@ -186,7 +186,7 @@ class MchaccntPayDispatchLib:
         order_no = cl.get_order_no()
         biz_content = {
             'trans_no': trans_no,
-            'trans_channel': '2051',
+            'trans_channel': trans_channel,
             'trans_time': trans_time,
             'trans_amt': '',
             'settle_duration': 'D+1',
@@ -236,7 +236,7 @@ class MchaccntPayDispatchLib:
         order_no = cl.get_order_no()
         biz_content = {
             'trans_no': trans_no,
-            'trans_channel': '2051',
+            'trans_channel': trans_channel,
             'trans_time': trans_time,
             'trans_amt': '100',
             'settle_duration': '',
@@ -287,7 +287,7 @@ class MchaccntPayDispatchLib:
         order_no = cl.get_order_no()
         biz_content = {
             'trans_no': trans_no,
-            'trans_channel': '2051',
+            'trans_channel': trans_channel,
             'trans_time': trans_time,
             'trans_amt': '100',
             'settle_duration': 'D+1',
@@ -337,7 +337,7 @@ class MchaccntPayDispatchLib:
         order_no = cl.get_order_no()
         biz_content = {
             'trans_no': trans_no,
-            'trans_channel': '2051',
+            'trans_channel': trans_channel,
             'trans_time': trans_time,
             'trans_amt': '100',
             'settle_duration': 'D+1',
@@ -387,7 +387,7 @@ class MchaccntPayDispatchLib:
         order_no = cl.get_order_no()
         biz_content = {
             'trans_no': trans_no,
-            'trans_channel': '2051',
+            'trans_channel': trans_channel,
             'trans_time': '',
             'trans_amt': 100,
             'settle_duration': 'D+1',
@@ -437,7 +437,7 @@ class MchaccntPayDispatchLib:
         # order_no = cl.get_order_no()
         biz_content = {
             'trans_no': trans_no,
-            'trans_channel': '2051',
+            'trans_channel': trans_channel,
             'trans_time': trans_time,
             'trans_amt': 100,
             'settle_duration': 'D+1',
@@ -487,7 +487,7 @@ class MchaccntPayDispatchLib:
         order_no = cl.get_order_no()
         biz_content = {
             'trans_no': trans_no,
-            'trans_channel': '2051',
+            'trans_channel': trans_channel,
             'trans_time': trans_time,
             'trans_amt': 100,
             'settle_duration': 'D+1',
@@ -537,7 +537,7 @@ class MchaccntPayDispatchLib:
         order_no = cl.get_order_no()
         biz_content = {
             'trans_no': trans_no,
-            'trans_channel': '2051',
+            'trans_channel': trans_channel,
             'trans_time': trans_time,
             'trans_amt': 100,
             'settle_duration': 'D+1',
@@ -587,7 +587,7 @@ class MchaccntPayDispatchLib:
         order_no = cl.get_order_no()
         biz_content = {
             'trans_no': trans_no,
-            'trans_channel': '2051',
+            'trans_channel': trans_channel,
             'trans_time': trans_time,
             'trans_amt': 100,
             'settle_duration': 'D+1',
@@ -637,7 +637,7 @@ class MchaccntPayDispatchLib:
         order_no = cl.get_order_no()
         biz_content = {
             'trans_no': trans_no,
-            'trans_channel': '2051',
+            'trans_channel': trans_channel,
             'trans_time': trans_time,
             'trans_amt': '100',
             'settle_duration': 'D+1',
@@ -687,7 +687,7 @@ class MchaccntPayDispatchLib:
         order_no = cl.get_order_no()
         biz_content = {
             'trans_no': trans_no,
-            'trans_channel': '2051',
+            'trans_channel': trans_channel,
             'trans_time': trans_time,
             'trans_amt': '100',
             'settle_duration': 'D+1',
@@ -737,7 +737,7 @@ class MchaccntPayDispatchLib:
         order_no = cl.get_order_no()
         biz_content = {
             'trans_no': trans_no,
-            'trans_channel': '2051',
+            'trans_channel': trans_channel,
             'trans_time': trans_time,
             'trans_amt': '100',
             'settle_duration': 'D+1',
@@ -837,7 +837,7 @@ class MchaccntPayDispatchLib:
         order_no = cl.get_order_no()
         biz_content = {
             'trans_no': trans_no,
-            'trans_channel': '2051',
+            'trans_channel': trans_channel,
             'trans_time': trans_time,
             'trans_amt': trans_amt,
             'settle_duration': 'D+1',
@@ -864,7 +864,7 @@ class MchaccntPayDispatchLib:
         pprint(response)
         return response
 
-    def use_trans_amt_mchaccnt_pay_dispatch(self, mch_accnt_no, settle_duration):
+    def use_settle_duration_mchaccnt_pay_dispatch(self, mch_accnt_no, settle_duration):
         """
         获取商户支付记账的返回报文方法:get_response_mchaccnt_pay_dispatch()
         :param trans_no:交易流水号(支付通道返回的交易订单号，标识唯一的一笔支付交易，同一商户下唯一)
@@ -879,7 +879,7 @@ class MchaccntPayDispatchLib:
         :param dispatch_type:分账类型(1：正交易；2：反交易)
         :param business_type:业务类型（网吧、医药、保险..）
         :param amount:分账金额  分
-        :param accnt_amount_before: 账户事前余额(商户系统中，对应该账户的余额)
+        :param accnt_amount_before: 账户事前余额(商户系统中，对应该账户的余额)      非必填
         :return:商户支付记账的返回报文参数给外部调用者
         """
         trans_no = cl.get_trans_no()
@@ -887,7 +887,7 @@ class MchaccntPayDispatchLib:
         order_no = cl.get_order_no()
         biz_content = {
             'trans_no': trans_no,
-            'trans_channel': '2051',
+            'trans_channel': trans_channel,
             'trans_time': trans_time,
             'trans_amt': '1000',
             'settle_duration': settle_duration,
@@ -917,7 +917,8 @@ class MchaccntPayDispatchLib:
 
 if __name__ == '__main__':
     mpd = MchaccntPayDispatchLib()
-    mpd.get_response_mchaccnt_pay_dispatch('2051', '100', 'D1',  '1', 'T0020191219184043000188', 'pay', '1', '网吧', '100', '1')
+    mpd.get_response_mchaccnt_pay_dispatch('2051', '100', 'D1',  '1', 'T0020191219184043000188',
+                                           'pay', '1', '网吧', '100', '1')
 
 
 

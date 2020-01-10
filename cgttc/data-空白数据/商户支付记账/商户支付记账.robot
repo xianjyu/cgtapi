@@ -4,10 +4,12 @@ Library  pylib.interface.cgt.MchsubBindBankcardPrivateLib
 Library  pylib.interface.cgt.MchaccntWithdrawLib
 Library  pylib.interface.cgt.MchaccntPayDispatchLib
 Library  pylib.public.cgt.DBHelper
+Library  pylib.public.cgt.ComLib
 Variables  config.py
 
 *** Test Cases ***
 交易流水号为空 -tc00351
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -24,6 +26,7 @@ Variables  config.py
         ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 交易渠道为空 -tc00352
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -40,6 +43,7 @@ Variables  config.py
         ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 交易金额为空 -tc00353
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -56,6 +60,7 @@ Variables  config.py
         ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 结算周期为空 -tc00354
+        sleep  1s
         # 正常创建子商户   结算周期非必填
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -72,6 +77,7 @@ Variables  config.py
         ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 结算方式为空 -tc00355
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -88,6 +94,7 @@ Variables  config.py
         ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 订单号为空 -tc00356
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -109,6 +116,7 @@ Variables  config.py
         should be true  $result['message']=='必输参数不能为空{mch_accnt_no}'
 
 分账类型为空 -tc00358
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -125,6 +133,7 @@ Variables  config.py
         ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 分账事件为空 -tc00359
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -141,6 +150,7 @@ Variables  config.py
         ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 交易完成时间为空 -tc00360
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -157,6 +167,7 @@ Variables  config.py
         ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 业务类型为空 -tc00361
+        sleep  1s
         # 正常创建子商户  非必填
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -173,6 +184,7 @@ Variables  config.py
         ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 分账金额为空 -tc00362
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -189,6 +201,7 @@ Variables  config.py
         ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 事前余额为空 -tc00363
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -205,6 +218,7 @@ Variables  config.py
         ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 使用同一个交易流水号 -tc00364
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -225,6 +239,7 @@ Variables  config.py
         ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 交易流水号不存在 -tc00365
+        sleep  1s
         # 注：在支付记账时不校验交易流水号是否是同一个，只校验是否为空
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
@@ -239,8 +254,10 @@ Variables  config.py
         ${result}=  use_same_trans_no_mchaccnt_pay_dispatch  ${mch_accnt_no}  tn_abcdefg!@#$%
         should be true  $result['code']=='0000'
         should be true  $result['message']=='success'
+        ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 交易渠道不存在 -tc00366
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -254,8 +271,10 @@ Variables  config.py
         ${result}=  use_trans_channel_mchaccnt_pay_dispatch  ${mch_accnt_no}  0000
         should be true  $result['code']=='210'
         should be true  $result['message']=='参数无效:{trans_channel}'
+        ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 交易金额为负数 -tc00367
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -269,8 +288,10 @@ Variables  config.py
         ${result}=  use_trans_amt_mchaccnt_pay_dispatch  ${mch_accnt_no}  -100  100
         should be true  $result['code']=='316'
         should be true  $result['message']=='分账金额有误:{[trans_amt]参数}'
+        ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 交易金额与分账金额不一致 -tc00368
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -284,8 +305,10 @@ Variables  config.py
         ${result}=  use_trans_amt_mchaccnt_pay_dispatch  ${mch_accnt_no}  10  100
         should be true  $result['code']=='210'
         should be true  $result['message']=='支付记账，交易金额trans_amt和明细金额不一致'
+        ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 交易金额小于分账金额 -tc00369
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -299,8 +322,10 @@ Variables  config.py
         ${result}=  use_trans_amt_mchaccnt_pay_dispatch  ${mch_accnt_no}  99  100
         should be true  $result['code']=='210'
         should be true  $result['message']=='支付记账，交易金额trans_amt和明细金额不一致'
+        ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 交易金额大于分账金额 -tc00370
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -314,8 +339,10 @@ Variables  config.py
         ${result}=  use_trans_amt_mchaccnt_pay_dispatch  ${mch_accnt_no}  999  100
         should be true  $result['code']=='210'
         should be true  $result['message']=='支付记账，交易金额trans_amt和明细金额不一致'
+        ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
 交易金额为0 -tc00371
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -329,8 +356,9 @@ Variables  config.py
         ${result}=  use_trans_amt_mchaccnt_pay_dispatch  ${mch_accnt_no}  0  100
         should be true  $result['code']=='210'
         should be true  $result['message']=='支付记账，交易金额trans_amt和明细金额不一致'
+        ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
-结算周期为T+1 tc00372
+结算周期为T1 tc00372
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -343,41 +371,46 @@ Variables  config.py
         ${mch_accnt_no}=  set variable  &{biz_content}[mch_accnt_no]
         # 手动更新子商户账户剩余资金和已结算余额分别为100000
         ${sql_amount}=  update amount sql  100000  100000  ${mch_accnt_no}
-        ${result}=  use_trans_amt_mchaccnt_pay_dispatch  ${mch_accnt_no}  D+1
+        ${result}=  use_settle_duration_mchaccnt_pay_dispatch  ${mch_accnt_no}  T1
         should be true  $result['code']=='0000'
         should be true  $result['message']=='success'
         # 存管户账户剩余资金和已结算余额
-        select_mch_accnt  ${mch_no}  ${mch_accnt_no}
+        ${select_mch_accnt}=  select_mch_accnt  ${mch_no}  ${mch_accnt_no}
+        ${get_list}=  get_list  $select_mch_accnt
 
-结算周期为D+1 -tc00373
-        # 正常创建子商户
-        ${result}=  mchsub create out mch accnt no not repeat
-        should be true  $result['code']=='0000'
-        should be true  $result['message']=='success'
-        # 把获取到的biz_content交给变量
-        ${biz_content}=  set variable  &{result}[biz_content]
-        # 获取mch_accnt_no
-        ${mch_accnt_no}=  set variable  &{biz_content}[mch_accnt_no]
-        # 手动更新子商户账户剩余资金和已结算余额分别为100000
-        ${sql_amount}=  update amount sql  100000  100000  ${mch_accnt_no}
-        ${result}=  use_trans_amt_mchaccnt_pay_dispatch  ${mch_accnt_no}  D+1
-        should be true  $result['code']=='210'
-        should be true  $result['message']=='支付记账，交易金额trans_amt和明细金额不一致'
+#        ${delete_mch_accnt_no}=  delete_mch_accnt_no  ${mch_accnt_no}
 
-结算周期为不存在的类型 -tc00374
-        # 正常创建子商户
-        ${result}=  mchsub create out mch accnt no not repeat
-        should be true  $result['code']=='0000'
-        should be true  $result['message']=='success'
-        # 把获取到的biz_content交给变量
-        ${biz_content}=  set variable  &{result}[biz_content]
-        # 获取mch_accnt_no
-        ${mch_accnt_no}=  set variable  &{biz_content}[mch_accnt_no]
-        # 手动更新子商户账户剩余资金和已结算余额分别为100000
-        ${sql_amount}=  update amount sql  100000  100000  ${mch_accnt_no}
-        ${result}=  use_trans_amt_mchaccnt_pay_dispatch  ${mch_accnt_no}  abc
-        should be true  $result['code']=='210'
-        should be true  $result['message']=='支付记账，交易金额trans_amt和明细金额不一致'
+#结算周期为D1 -tc00373
+#        sleep  1s
+#        # 正常创建子商户
+#        ${result}=  mchsub create out mch accnt no not repeat
+#        should be true  $result['code']=='0000'
+#        should be true  $result['message']=='success'
+#        # 把获取到的biz_content交给变量
+#        ${biz_content}=  set variable  &{result}[biz_content]
+#        # 获取mch_accnt_no
+#        ${mch_accnt_no}=  set variable  &{biz_content}[mch_accnt_no]
+#        # 手动更新子商户账户剩余资金和已结算余额分别为100000
+#        ${sql_amount}=  update amount sql  100000  100000  ${mch_accnt_no}
+#        ${result}=  use_trans_amt_mchaccnt_pay_dispatch  ${mch_accnt_no}  D+1
+#        should be true  $result['code']=='210'
+#        should be true  $result['message']=='支付记账，交易金额trans_amt和明细金额不一致'
+
+#结算周期为不存在的类型 -tc00374
+#        sleep  1s
+#        # 正常创建子商户
+#        ${result}=  mchsub create out mch accnt no not repeat
+#        should be true  $result['code']=='0000'
+#        should be true  $result['message']=='success'
+#        # 把获取到的biz_content交给变量
+#        ${biz_content}=  set variable  &{result}[biz_content]
+#        # 获取mch_accnt_no
+#        ${mch_accnt_no}=  set variable  &{biz_content}[mch_accnt_no]
+#        # 手动更新子商户账户剩余资金和已结算余额分别为100000
+#        ${sql_amount}=  update amount sql  100000  100000  ${mch_accnt_no}
+#        ${result}=  use_trans_amt_mchaccnt_pay_dispatch  ${mch_accnt_no}  abc
+#        should be true  $result['code']=='210'
+#        should be true  $result['message']=='支付记账，交易金额trans_amt和明细金额不一致'
 
 
 

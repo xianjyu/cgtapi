@@ -43,16 +43,18 @@ class DBHelper:
         return result
 
     def update_amount_sql(self, remain_amt, settled_amount, mch_accnt_no):
+        self.connect = pymysql.connect(localhost, username, password, database)
+        self.mfp_cursor = self.connect.cursor()
         sql = 'UPDATE mch_accnt SET remain_amt = ' + "'" + remain_amt + "'" + ', settled_amount = ' + "'" + settled_amount + "'" + ' WHERE mch_no = ' + "'MH20181229115220NBUu'" + ' And mch_accnt_no = ' + "'" + mch_accnt_no + "'"
         print(sql)
-        result = self.cursor.execute(sql)
+        result = self.mfp_cursor.execute(sql)
         if result == 1:
             print("数据库修改状态成功！")
         elif result == 0:
             print("数据库修改状态失败！")
-        self.conn.commit()
-        self.cursor.close()
-        self.conn.close()
+        self.connect.commit()
+        self.mfp_cursor.close()
+        self.connect.close()
         return result
 
     def update_bank_sql(self, mch_accnt_no):

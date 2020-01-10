@@ -1,6 +1,6 @@
 import json
 import requests
-from config import token, cgt_test_env_url, notify_url
+from config import token, cgt_test_env_url, notify_url, trans_channel
 from pylib.public.cgt.ComLib import ComLib
 
 

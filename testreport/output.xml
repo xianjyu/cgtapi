@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20191223 18:19:29.623" rpa="false">
+<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20191225 18:29:35.193" rpa="false">
 <suite id="s1" name="Cgttc" source="D:\workfile\Git\cgtapi\cgttc">
 <suite id="s1-s1" name="Data-空白数据" source="D:\workfile\Git\cgtapi\cgttc\data-空白数据">
 <suite id="s1-s1-s1" name="商户支付记账" source="D:\workfile\Git\cgtapi\cgttc\data-空白数据\商户支付记账">
 <suite id="s1-s1-s1-s1" name="商户支付记账" source="D:\workfile\Git\cgtapi\cgttc\data-空白数据\商户支付记账\商户支付记账.robot">
-<test id="s1-s1-s1-s1-t1" name="结算周期为T+1 tc00372">
+<test id="s1-s1-s1-s1-t1" name="结算周期为T1 tc00372">
 <kw name="Mchsub Create Out Mch Accnt No Not Repeat" library="pylib.interface.cgt.MchsubCreateLib">
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20191223 18:19:32.794" level="FAIL">ConnectionError: HTTPConnectionPool(host='172.16.202.160', port=3054): Max retries exceeded with url: /api/deposit.htm (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000016BDAF9C1F0&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))</msg>
-<status status="FAIL" starttime="20191223 18:19:30.665" endtime="20191223 18:19:32.794"></status>
+<msg timestamp="20191225 18:30:06.524" level="FAIL">ConnectionError: HTTPConnectionPool(host='172.16.202.163', port=3054): Max retries exceeded with url: /api/deposit.htm (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002F8F754C070&gt;: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。'))</msg>
+<status status="FAIL" starttime="20191225 18:29:45.383" endtime="20191225 18:30:06.525"></status>
 </kw>
-<status status="FAIL" starttime="20191223 18:19:30.663" endtime="20191223 18:19:32.795" critical="yes">ConnectionError: HTTPConnectionPool(host='172.16.202.160', port=3054): Max retries exceeded with url: /api/deposit.htm (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000016BDAF9C1F0&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))</status>
+<status status="FAIL" starttime="20191225 18:29:45.383" endtime="20191225 18:30:06.525" critical="yes">ConnectionError: HTTPConnectionPool(host='172.16.202.163', port=3054): Max retries exceeded with url: /api/deposit.htm (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002F8F754C070&gt;: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。'))</status>
 </test>
-<status status="FAIL" starttime="20191223 18:19:29.704" endtime="20191223 18:19:32.796"></status>
+<status status="FAIL" starttime="20191225 18:29:35.217" endtime="20191225 18:30:06.528"></status>
 </suite>
-<status status="FAIL" starttime="20191223 18:19:29.702" endtime="20191223 18:19:32.798"></status>
+<status status="FAIL" starttime="20191225 18:29:35.216" endtime="20191225 18:30:06.531"></status>
 </suite>
-<status status="FAIL" starttime="20191223 18:19:29.699" endtime="20191223 18:19:32.799"></status>
+<status status="FAIL" starttime="20191225 18:29:35.212" endtime="20191225 18:30:06.532"></status>
 </suite>
-<status status="FAIL" starttime="20191223 18:19:29.624" endtime="20191223 18:19:32.801"></status>
+<status status="FAIL" starttime="20191225 18:29:35.194" endtime="20191225 18:30:06.534"></status>
 </suite>
 <statistics>
 <total>

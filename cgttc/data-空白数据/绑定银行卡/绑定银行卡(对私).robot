@@ -20,6 +20,7 @@ Library  pylib.public.cgt.DBHelper
         ${result}=  check mch accnt no bind bankcard private
         should be true  $result['code']=='101'
         should be true  $result['message']=='必输参数不能为空:{子商户账号}'
+        ${sql_amount}=  update amount sql  0  0  ${mch_accnt_no}
 
 订单号为空 - tc00152
         # 2.订单号为空:check_order_no_bind_bankcard_private()
@@ -38,6 +39,7 @@ Library  pylib.public.cgt.DBHelper
         ${result}=  check order no bind bankcard private
         should be true  $result['code']=='101'
         should be true  $result['message']=='必输参数不能为空:{订单号}'
+        ${sql_amount}=  update amount sql  0  0  ${mch_accnt_no}
 
 银行卡账户类型为空 - tc00153
         # 3.银行卡账户类型为空:check_card_accnt_type_bind_bankcard_private()
@@ -56,6 +58,7 @@ Library  pylib.public.cgt.DBHelper
         ${result}=  check card accnt type bind bankcard private
         should be true  $result['code']=='101'
         should be true  $result['message']=='必输参数不能为空:{银行卡账户类型}'
+        ${sql_amount}=  update amount sql  0  0  ${mch_accnt_no}
 
 银行卡号为空 - tc00154
         # 4.银行卡号为空:check_card_no_bind_bankcard_private()
@@ -74,6 +77,7 @@ Library  pylib.public.cgt.DBHelper
         ${result}=  check card no bind bankcard private
         should be true  $result['code']=='101'
         should be true  $result['message']=='必输参数不能为空:{银行卡号}'
+        ${sql_amount}=  update amount sql  0  0  ${mch_accnt_no}
 
 开户行名称为空 - tc00155
         # 5.开户行名称为空:check_bank_name_bind_bankcard_private()
@@ -85,13 +89,14 @@ Library  pylib.public.cgt.DBHelper
         # 把获取到的biz_content交给变量
         ${biz_content}=  set variable  &{result}[biz_content]
         # 获取mch_accnt_no
-        ${mch_accnt_no}=  set variable  1000  1000  &{biz_content}[mch_accnt_no]
-        # 手动更新子商户账户剩余资金和已结算余额分别为1000
-        ${sql_amount}=  update amount sql  ${mch_accnt_no}
+        ${mch_accnt_no}=  set variable  &{biz_content}[mch_accnt_no]
+        # 手动更新子商户账户剩余资金和已结算余额分别为100000
+        ${sql_amount}=  update amount sql  1000  1000  ${mch_accnt_no}
         # 对私：银行卡号为空时的判断
         ${result}=  check bank name bind bankcard private
         should be true  $result['code']=='101'
         should be true  $result['message']=='必输参数不能为空:{开户行名称}'
+        ${sql_amount}=  update amount sql  0  0  ${mch_accnt_no}
 
 分支行名称为空 - tc00156
         # 6分支行名称为空:check_bank_branch_name_bind_bankcard_private()
@@ -119,6 +124,7 @@ Library  pylib.public.cgt.DBHelper
         ${status}=  set variable  &{biz_content2}[status]
         should be true  $remark=='绑卡成功'
         should be true   $status=='success'
+        ${sql_amount}=  update amount sql  0  0  ${mch_accnt_no}
 
 户名为空 - tc00157
         # 7.户名为空:check_user_name_bind_bankcard_private()
@@ -188,6 +194,7 @@ Library  pylib.public.cgt.DBHelper
         ${status}=  set variable  &{biz_content2}[status]
         should be true  $remark=='绑卡成功'
         should be true   $status=='success'
+        ${sql_amount}=  update amount sql  0  0  ${mch_accnt_no}
 
 信用卡有效期为空 - tc00165
         # 15.信用卡有效期为空
@@ -215,6 +222,7 @@ Library  pylib.public.cgt.DBHelper
         ${status}=  set variable  &{biz_content2}[status]
         should be true  $remark=='绑卡成功'
         should be true   $status=='success'
+        ${sql_amount}=  update amount sql  0  0  ${mch_accnt_no}
 
 authen_type为空 - tc00166
         # 16.authen_type为空
@@ -242,8 +250,10 @@ authen_type为空 - tc00166
         ${status}=  set variable  &{biz_content2}[status]
         should be true  $remark=='绑卡成功'
         should be true   $status=='success'
+        ${sql_amount}=  update amount sql  0  0  ${mch_accnt_no}
 
 账户提现正常 - tc00200
+        sleep  1s
         # 正常创建子商户
         ${result}=  mchsub create out mch accnt no not repeat
         should be true  $result['code']=='0000'
@@ -253,7 +263,7 @@ authen_type为空 - tc00166
         # 获取mch_accnt_no
         ${mch_accnt_no}=  set variable  &{biz_content}[mch_accnt_no]
         # 手动更新子商户账户剩余资金和已结算余额分别为1000
-        ${sql_amount}=  update amount sql  ${mch_accnt_no}
+        ${sql_amount}=  update amount sql  100000  100000  ${mch_accnt_no}
         # 对私：对子商户绑定银行卡${mch_accnt_no}
         ${result2}=  get response mchsub bind bankcard private  ${mch_accnt_no}  1  6217866300004303385  中国银行  中国银行支行
                                                                             ...  余道友  18158857961  http://172.16.202.160:3054/api/bankcard/notify.htm
@@ -267,5 +277,6 @@ authen_type为空 - tc00166
         ${status}=  set variable  &{biz_content2}[status]
         should be true  $remark=='绑卡成功'
         should be true   $status=='success'
+        ${sql_amount}=  update amount sql  0  0  ${mch_accnt_no}
 
 

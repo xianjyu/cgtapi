@@ -5,7 +5,7 @@ from config import biz_type, sign_type, mch_no
 
 class ComLib:
     """
-    公共方法
+        公共方法
     """
     def __init__(self):
         self.mch_no = mch_no
@@ -95,6 +95,10 @@ class ComLib:
         timestamp = ComLib.get_time(self)
         trans_no = 'tn' + timestamp
         return trans_no
+
+    def get_list(self, tup):
+        new_list = list(tup)
+        return new_list
 
 
 if __name__ == '__main__':

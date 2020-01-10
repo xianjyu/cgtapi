@@ -122,5 +122,28 @@ Variables  config.py
         should be true  $result['code']=='0000'
         should be true  $result['message']=='success'
 
+# 正常创建子商户 - tc 00037
+#        ${result}=  mchsub create out mch accnt no not repeat
+#        should be true  $result['code']=='0000'
+#        should be true  $result['message']=='success'
+#        # 把获取到的biz_content交给变量
+#        ${biz_content}=  set variable  &{result}[biz_content]
+#        # 获取mch_accnt_no
+#        ${mch_accnt_no}=  set variable  &{biz_content}[mch_accnt_no]
+#        # 手动更新子商户账户剩余资金和已结算余额分别为1000
+#        ${sql_amount}=  update amount sql  ${mch_accnt_no}
+#        # 对私：对子商户绑定银行卡${mch_accnt_no}
+#        ${result2}=  get response mchsub bind bankcard private  ${mch_accnt_no}  1  6217866300004303385  中国银行  中国银行支行
+#                                                                            ...  余道友  18158857961  http://172.16.202.160:3054/api/bankcard/notify.htm
+#                                                                            ...  0  342423196910292879  0  104100000004  123  2100-01-01  0
+#        should be true  $result2['code']=='0000'
+#        should be true  $result2['message']=='success'
+#        # 获取绑定银行卡成功的返回报文
+#        ${biz_content2}=  set variable  &{result2}[biz_content]
+#        ${card_no}=  set variable  &{biz_content2}[card_no]
+#        ${remark}=  set variable  &{biz_content2}[remark]
+#        ${status}=  set variable  &{biz_content2}[status]
+#        should be true  $remark=='绑卡成功'
+#        should be true   $status=='success'
 
 

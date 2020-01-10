@@ -799,7 +799,7 @@ Variables  config.py
         # 再次手动还原mch表中的通道手续费fixed_poundage
         ${restore_fixed_poundage}=  modify_fixed_poundage  0  ${mch_no}  cib
 
-提现金额大于提现账户结算余额 -tc00284
+#提现金额大于提现账户结算余额 -tc00284
          # 34.提现金额大于提现账户结算余额(1、未配置手续费且非分润提现账户2、未开启超额提现开关)
 
 
